@@ -19,6 +19,8 @@ def notification(request):
 def sendreq(request):
     return render(request,'sendReq.html')
 
+    
+
 
 
 # Create your views here

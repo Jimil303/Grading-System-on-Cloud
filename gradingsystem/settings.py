@@ -125,6 +125,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+    '/Users/jimilprajapati/Documents/GitHub/Grading-System-on-Cloud/static'
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
