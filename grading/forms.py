@@ -5,5 +5,5 @@ class Myform (forms.ModelForm):
     class Meta:
         model = FacultyCredentials
         feilds = ['username', 'password', 'university', 'auth',]
-        exclude = []
+        exclude =[]
         labels = {'username': "Username", 'password': "Password", 'university': "University", 'auth': "Infoadded"}

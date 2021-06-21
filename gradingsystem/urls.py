@@ -25,6 +25,7 @@ urlpatterns = [
     path('',views.index, name = 'Home'),
     url('homepage', views.index, name='Homepage'),
     url('regUser',views.reguser,name='Register User'),
+    url('reguser2',views.reguser2,name='Register User'),
     url('search',views.search,name='Search'),
     url('notifications',views.notification,name='Notifications'),
     url('sendReq',views.sendreq,name='Send Request'),

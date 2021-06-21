@@ -40,7 +40,12 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		  </fieldset>
 	</form>
-
+	<br>
+	<form method = "POST" enctype = "multipart/form-data" action="reguser2">
+		{%csrf_token%}
+		<input name = "csvfile" type = "file">
+		<input type = "submit" value = "Upload">
+	</form>
 	<div id="body">
 	</div>
 	<div id="footer">
