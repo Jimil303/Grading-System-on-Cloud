@@ -21,10 +21,10 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    url('admin/', admin.site.urls),
-    url('', views.index, name='Homepage'),
-    url('',views.reguser,name='Register User'),
-    url('',views.search,name='Search'),
-    url('',views.notification,name='Notifications'),
-    url('',views.sendreq,name='Send Request'),
+    url(r'^admin/', admin.site.urls),
+    url('homepage', views.index),
+    url('RegisterUsers',views.reguser),
+    url('Search',views.search),
+    url('Notification',views.notification),
+    url('StudentValidation',views.sendreq),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

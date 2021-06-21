@@ -5,19 +5,19 @@ from django.core.files.storage import FileSystemStorage
 
 
 def index(request):
-    return render(request,'homepage.html')
+    return render(request,'HomePage.html')
 
 def reguser(request):
-    return render(request,'regUser.html')
+    return render(request,'RegisterUsers.html')
 
 def search(request):
-    return render(request,'search.html')
+    return render(request,'Search.html')
 
 def notification(request):
-    return render(request,'notifications.html')
+    return render(request,'Notification.html')
 
 def sendreq(request):
-    return render(request,'sendReq.html')
+    return render(request,'StudentValidation.html')
 
     
 
