@@ -5,7 +5,7 @@ from django.core.files.storage import FileSystemStorage
 
 
 def index(request):
-    return render(request,'HomePage.html')
+    return render(request,'homepage.html')
 
 def reguser(request):
     return render(request,'RegisterUsers.html')
