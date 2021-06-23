@@ -7,7 +7,17 @@ from .forms import Myform
 import csv
 import os
 
+def login(request):
+    return render(request,'login.html')
 
+def loginstudent(request):
+    return render(request,'loginpagestudent.html')
+
+def loginfaculty(request):
+    return render(request,'loginpagefaculty.html')
+
+def loginadmin(request):
+    return render(request,'loginpageadmin.html')
 
 def index(request):
     return render(request,'homepage.html')

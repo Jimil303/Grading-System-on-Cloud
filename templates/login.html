@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/logincss.css' %}">
+</head>
+<body>
+
+<!-- Form-->
+<div class="form">
+    <div class="form-toggle"></div>
+    <div class="form-panel one">
+      <div class="form-header">
+        <h1>Hello ! Login As : </h1>
+      </div>
+          <div class="form-group">
+            <a href="loginpagestudent.html">Log In as Student</a>
+            <a href="loginpagefaculty.html">Log In as Faculty</a>
+            <a href="loginpageadmin.html">Log In as Admin</a>
+
+          </div>
+      </div>
+    </div>
+</body>
+</html>
