@@ -22,11 +22,11 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index, name = 'Home'),
-    url('login', views.login, name='login'),
-    url('loginpagestudent', views.loginstudent, name='loginpagestudent'),
-    url('loginpagefaculty', views.loginfaculty, name='loginpagefaculty'),
-    url('loginpageadmin', views.loginadmin, name='loginpageadmin'),
+    path('homepage.html',views.index, name = 'home'),
+    url('login.html', views.login, name='login.html'),
+    url('loginpagestudent.html', views.loginstudent, name='loginpagestudent'),
+    url('loginpagefaculty.html', views.loginfaculty, name='loginpagefaculty'),
+    url('loginpageadmin.html', views.loginadmin, name='loginpageadmin'),
     url('RegisterUsers',views.reguser,name='RegisterUsers'),
     url('reguser2',views.reguser2,name='RegisterUsers'),
     url('Search',views.search,name='Search'),
