@@ -23,13 +23,13 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('homepage.html',views.index, name = 'home'),
-    url('login.html', views.login, name='login.html'),
-    url('loginpagestudent.html', views.loginstudent, name='loginpagestudent'),
-    url('loginpagefaculty.html', views.loginfaculty, name='loginpagefaculty'),
-    url('loginpageadmin.html', views.loginadmin, name='loginpageadmin'),
+    path('', views.login, name='login'),
+    url('loginpagestudent', views.loginstudent, name='loginpagestudent'),
+    url('loginpagefaculty', views.loginfaculty, name='loginpagefaculty'),
+    url('loginadmin', views.loginadmin, name='loginadmin'),
     url('RegisterUsers',views.reguser,name='RegisterUsers'),
     url('reguser2',views.reguser2,name='RegisterUsers'),
     url('Search',views.search,name='Search'),
     url('Notification',views.notification,name='Notification'),
-    url('StudentValidation',views.sendreq,name='SendRequest'),
+    url('StudentValidation',views.StudentValidation,name='StudentValidation'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
