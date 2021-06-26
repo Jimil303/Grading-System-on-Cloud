@@ -1,3 +1,5 @@
+from django.contrib.auth.models import UserManager
+from django.core.checks import messages
 from django.core.files.base import File
 from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
@@ -8,10 +10,10 @@ from grading.models import StudentCredentials
 from .forms import Myform
 from datetime import datetime
 import csv
-import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import ipdb
 
 def login(request):
 
@@ -27,18 +29,13 @@ def loginfaculty(request):
 
 def loginadmin(request):
     if request.method == 'POST':
-        u1 = request.POST['username']
-        p1 = request.POST['password']
-        #query = 'select * from university where username = %s and password = %s' [u1],[p1]
-        try:
-            details = Universities.objects.filter(username = u1 , password = p1).get()
-        except:
+        m = Universities.objects.get(username = request.POST['username'])
+        if m.password == request.POST['password']:
+            request.session['college'] = m.name
+            #print(sess['college'])
+            return render(request, 'homepage.html')
+        else:
             return render(request,'loginadmin.html')
-
-        if details != NullBooleanField:
-            context = {'name' : details.name , 'username' : details.username}
-            return render (request, 'homepage.html',context)
-
     return render(request,'loginadmin.html')
 
 def index(request):
@@ -77,9 +74,6 @@ def reguser2(request):
         context = {'filePathName': filePathName,}
     return render(request, 'RegisterUsers.html', context)
     
-
-    
-
 def search(request):
     return render(request,'Search.html')
 
@@ -92,24 +86,26 @@ def StudentValidation(request):
         fs = FileSystemStorage()
         filepathname = fs.save(fileobj.name,fileobj)
         #uploaded_to = fs.path(filepathname)
-        upload_data = cloudinary.uploader.upload(filepathname)
-        name = 'shabbir'
-        send_to = 'New York University'
+        upload_data = cloudinary.uploader.upload(filepathname).get('secure_url')
+        name = request.POST['name']
+        send_to = request.POST['search']
         now = datetime.now()
         datee = now.strftime("%Y-%m-%d")
         timee = now.strftime("%H:%M:%S")
-        print(upload_data[17])
+        print(upload_data)
         print(name)
         print(send_to)
+        #print(sess["college"])
         created = messenger.objects.get_or_create(
             reciever = send_to,
-            fileurl = upload_data[17],
+            fileurl = upload_data,
             dated = datee,
             time = timee,
             status = False,
             remarks = "NIL",
             nameStudent = name,
-            sender = "Dhirubhai Ambani Institute of Information and Communcation Technology",
+            sender = request.session['college'],
+            id=1
         )
         try:
             created.save()
