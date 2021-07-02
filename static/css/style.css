@@ -187,6 +187,7 @@ margin-top: 10%;
 		float: left;
 		height: 300px;
 		background-color: rgb(255, 255, 255);
+<<<<<<< Updated upstream
 	}
 
 .form{
@@ -271,3 +272,6 @@ input[name=upload], select {
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	font-size: 2em;
 }
+=======
+	}
+>>>>>>> Stashed changes
