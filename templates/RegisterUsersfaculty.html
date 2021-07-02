@@ -1,11 +1,10 @@
-
-{%load static %}
+{% load static %}
 <!doctype html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>HomePage</title>
+	<title>Register Faculty</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
 	<script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
@@ -14,38 +13,48 @@
 	<div id="header">
 		
 		<ul id="navigation">
-			<li class="selected">
+			<li>
 				<a href="homepage.html">home</a>
 			</li>
-			<li class="select">
+			<li class="selected">
                 <div class="dropdown">
                     <button class="dropbtn">REGISTER NEW USER</button>
                     <div class="dropdown-content">
-                      <a class="diff" href="RegisterUsersstudent.html">Register Student</a>
-                      <a class="diff" href="RegisterUsersfaculty.html">Register Faculty</a>
+                    <a class="diff" href="RegisterUsersfaculty.html">Register Student</a>
+                    <a class="diff" href="RegisterUsersstudent.html">Register Faculty</a>
                     </div>
-                  </div>
+                </div>
 
 			</li>
 			<li>
 				<a href="Search.html">search</a>
 			</li>
 			<li>
-
 				<a href="Notification.html">notifications</a>
 			</li>
 			<li>
 				<a href="StudentValidation.html">send validation request</a>
 			</li>
-			
 		</ul>
 		<hr size="1" width="100%" color="grey">   
 	</div>
+	<div id="first">
+		<h1>Add a Faculty</h1>
+		<form	form method="POST" class="form">
+				{% csrf_token %}
+				{{ form.as_p}}
+				<button type="submit" class="btn-btn-primary">Submit</button>
+		</form>
+	</div>
+	<div id="second">
+		<form method = "POST" enctype = "multipart/form-data" action="reguser2">
+			{%csrf_token%}
+			<input name = "csvfile" type = "file">
+			<input type = "submit" value = "Upload">
+		</form>
+	</div>
+
 	<div id="body">
-			<div>
-				<h2>Welcome to our Portal !</h2>
-		</div>
-		
 	</div>
 	<div id="footer">
 		<div>

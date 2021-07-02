@@ -4,10 +4,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Register Users</title>
+	<title>Register Student</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
-	<script type="text/javascript" src="js/mobile.js"></script>
+	<script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
 </head>
 <body>
 	<div id="header">
@@ -20,8 +20,8 @@
                 <div class="dropdown">
                     <button class="dropbtn">REGISTER NEW USER</button>
                     <div class="dropdown-content">
-                    <a class="diff" href="RegisterUsers.html">Register Student</a>
-                    <a class="diff" href="RegisterUsers.html">Register Faculty</a>
+                    <a class="diff" href="RegisterUsersstudent.html">Register Student</a>
+                    <a class="diff" href="RegisterUsersfaculty.html">Register Faculty</a>
                     </div>
                 </div>
 
@@ -38,23 +38,22 @@
 		</ul>
 		<hr size="1" width="100%" color="grey">   
 	</div>
-	
-	<form method = "POST" enctype = "multipart/form-data" action="reguser2">
-		{%csrf_token%}
-		<input name = "csvfile" type = "file">
-		<input type = "submit" value = "Upload">
-	</form>
-	<br>
-	<form method="POST" class="form">
-		<fieldset>
-			<legend>Add a Faculty</legend>
-			{% csrf_token %}
-			{{ form.as_p }}
-			<button type="submit" class="btn btn-primary">Submit</button>
-		</fieldset>
-	</form>
-	<br>
-	
+	<div id="first">
+		<h1>Add a Student</h1>
+		<form	form method="POST" class="form">
+				{% csrf_token %}
+				{{ form.as_p}}
+				<button type="submit" class="btn-btn-primary">Submit</button>
+		</form>
+	</div>
+	<div id="second">
+		<form method = "POST" enctype = "multipart/form-data" action="reguser2">
+			{%csrf_token%}
+			<input name = "csvfile" type = "file">
+			<input type = "submit" value = "Upload">
+		</form>
+	</div>
+
 	<div id="body">
 	</div>
 	<div id="footer">

@@ -173,101 +173,43 @@ body {
   .dropdown:hover .dropbtn {
 	  color: #0ba39c;}
 
-#first {
-	text-align: center;
-		width: 50%;
-		float: left;
-		height: 300px;
-			background-color: rgb(255, 255, 255);
-	}
-#second {
-margin-top: 10%;
-	text-align: center;
-		width: 50%;
-		float: left;
-		height: 300px;
-		background-color: rgb(255, 255, 255);
-	}
-
-.form{
+.notification-body{
+	float: left;
+	display: flex;
+    flex-direction: column;
 	text-align: center;
 	margin: auto;
-	width: 50%;
-	height: 300px;
-	background-color: rgb(255, 9, 9);
-	padding-top : 10%;
-	}
-
-	#name{
-		font-family: monospace;
-	}
-
-	#college{
-		font-family: monospace;
-	}
-
-
-.Search{
-padding-top: 1%;
-	text-align: center;
-	margin: auto;
-	width: 100%;
-	height: 150px;
+	width: 10%;
+	height: 75%;
+	border-right: 2px solid black;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	font-size: 2em;
-	
+			
 }
 
-input[id=Search], select {
-	width: 40%;
-	border-radius: 5%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-	font-size: medium;
+.small-div{
+    background-color: rgb(88, 185, 230);
+height: 33%;
+border-top: 2px solid black;
+border-bottom: 2px solid black;
 }
 
-input[id=name], select {
-	width: 40%;
-	border-radius: 5%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
+.text{
+	line-height: 166px; 
+	vertical-align: middle;
 }
 
-input[id=college], select {
-	width: 40%;
-	border-radius: 5%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
+.text-text{
+    text-decoration: none;
+    color: black;
 }
 
-input[name=upload], select {
-	width: 15%;
-	border-radius: 5%;
-	margin: 8px 0;
-	padding: 12px 20px;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-
-.student-validation-form{
+.notification-mail{
+    float: right;
 	text-align: center;
-	margin: auto;
-	width: 50%;
-	height: 150px;
+	width: 85%;
+	height: 507px;
+    background-color: blue;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	font-size: 2em;
 }

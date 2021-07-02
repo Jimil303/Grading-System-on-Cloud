@@ -7,7 +7,7 @@ from django.shortcuts import HttpResponse
 from django.core.files.storage import FileSystemStorage
 from grading.models import FacultyCredentials, Universities,messenger
 from grading.models import StudentCredentials
-from .forms import Myform
+from .forms import Myform , Myform2
 from datetime import datetime
 import csv
 import cloudinary
@@ -41,16 +41,51 @@ def loginadmin(request):
 def index(request):
     return render(request,'homepage.html')
 
-def reguser(request):
+def reguser1(request):
     if request.method == 'POST':
         form = Myform(request.POST)
+        form_class = Myform
         if form.is_valid():
             form.save()
     else:
             form = Myform()
-    return render(request, 'RegisterUsers.html', {'form' : form})
+    return render(request, 'RegisterUsersfaculty.html', {'form' : form})
 
 def reguser2(request):
+    if request.method == 'POST':
+        fileobj = request.FILES['csvfile']
+        fs = FileSystemStorage()
+        filePathName = fs.save(fileobj.name, fileobj)
+        #filePathName = fs.url(filePathName)
+        uploaded_to = fs.path(filePathName)
+        print(uploaded_to)
+        with open(uploaded_to) as f:
+            reader = csv.reader(f)
+            for row in reader:
+                created = FacultyCredentials.objects.get_or_create(
+                    username = row[0],
+                    password = row[1],
+                    auth = False,
+                    university = row[2],
+                )
+                try:
+                    created.save()
+                except:
+                    continue
+        context = {'filePathName': filePathName,}
+    return render(request, 'RegisterUsersfaculty.html', context)
+    
+def reguser3(request):
+    if request.method == 'POST':
+        form = Myform2(request.POST)
+        form_class = Myform2
+        if form.is_valid():
+            form.save()
+    else:
+            form = Myform2()
+    return render(request, 'RegisterUsersstudent.html', {'form' : form})
+
+def reguser4(request):
     if request.method == 'POST':
         fileobj = request.FILES['csvfile']
         fs = FileSystemStorage()
@@ -72,7 +107,7 @@ def reguser2(request):
                 except:
                     continue
         context = {'filePathName': filePathName,}
-    return render(request, 'RegisterUsers.html', context)
+    return render(request, 'RegisterUsersstudent.html', context)
     
 def search(request):
     return render(request,'Search.html')
@@ -82,6 +117,7 @@ def notification(request):
 
 def StudentValidation(request):
     if request.method == 'POST':
+        form_class = Myform
         fileobj = request.FILES['pdffile']
         fs = FileSystemStorage()
         filepathname = fs.save(fileobj.name,fileobj)
