@@ -166,12 +166,12 @@ body {
   /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content{
 	display: block;
-	 padding: 16px 16px;
+	padding: 16px 16px;
 }
-  
+
   /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {
-	  color: #0ba39c;}
+.dropdown:hover .dropbtn {
+	color: #0ba39c;}
 
 .notification-body{
 	float: left;
