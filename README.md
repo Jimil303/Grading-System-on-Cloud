@@ -17,11 +17,13 @@
 </p>
 2. Register Users :  This  page lets the admin add a new list of students/faculties or take singular entries for the same.c
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/45822642/117270246-a1459d00-ae76-11eb-8fa4-91f4a0fe1225.jpeg" width="400">
+  <img src="https://user-images.githubusercontent.com/35409637/124350972-5dfe7500-dc00-11eb-9072-4cdc0162f22e.png" width="400">
+   <img src="https://user-images.githubusercontent.com/35409637/124350978-62c32900-dc00-11eb-868f-ea79672314f0.png" width="400">
+
 </p>
 
 
-## Datbase :
+## Database :
 using postgres as the database, run the following queries
 
 create table university(
