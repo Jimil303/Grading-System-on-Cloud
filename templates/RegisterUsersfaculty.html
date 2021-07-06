@@ -40,13 +40,15 @@
 	</div>
 	<div id="first">
 		<h1>Add a Faculty</h1>
-		<form	form method="POST" class="form">
+		<form form method="POST">
 				{% csrf_token %}
 				{{ form.as_p}}
-				<button type="submit" class="btn-btn-primary">Submit</button>
+				<button  id="faculty-submit" type="submit">Submit</button>
 		</form>
 	</div>
 	<div id="second">
+		<h1>Add a list of Faculties</h1>
+		<br><br><br><br>
 		<form method = "POST" enctype = "multipart/form-data" action="reguser2">
 			{%csrf_token%}
 			<input name = "csvfile" type = "file">

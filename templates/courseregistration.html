@@ -1,0 +1,74 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Course Registration</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/student-style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
+	<script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
+</head>
+<body>
+	<div id="header">
+		
+		<ul id="navigation">
+			<li>
+				<a href="studenthomepage.html">Home</a>
+			</li>
+			<li>
+				<a href="result.html">Result</a>
+			</li>
+			<li class="selected">
+				<a href="courseregistration.html">Course Registration</a>
+			</li>
+			<li>
+
+				<a href="Notification.html">notifications</a>
+			</li>
+			<li>
+				<a href="updateprofile-student.html">Update Profile</a>
+			</li>
+		</ul>
+		<hr size="1" width="100%" color="grey">   
+	</div>
+	<div class="course-registration">
+		<p>Register for your Courses</p>
+		<div id="semester-dropdown">
+			<input list="semester-list" id="semester-search" type="text" placeholder="Select Semester" required="required"/>
+			<datalist id="semester-list">
+				<option value="Semester I"></option>
+				<option value="Semester II"></option>
+				<option value="Semester III"></option>
+				<option value="Semester IV"></option>
+				<option value="Semester V"></option>
+				<option value="Semester VI"></option>
+				<option value="Semester VII"></option>
+				<option value="Semester VIII"></option>
+
+			</datalist>
+		</div>
+
+		<div id="course-list">
+			<input id="courses" type="text" placeholder="Course I" required="required"/>
+			<input id="courses" type="text" placeholder="Course II" required="required"/>
+			<input id="courses" type="text" placeholder="Course III" required="required"/>
+			<input id="courses" type="text" placeholder="Course IV" required="required"/>
+			<input id="courses" type="text" placeholder="Course V" required="required"/>
+			<input id="courses" type="text" placeholder="Course VI" required="required"/>
+		</div>
+		
+		
+
+		<div>
+			<button id="submit" type="submit">Submit</button>
+        </div>
+	</div>
+
+</body>
+<div id="footer">
+	<div>
+		<p>&copy; SRI 2021</p>
+	</div>
+</div>
+</html>

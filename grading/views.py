@@ -149,7 +149,23 @@ def StudentValidation(request):
             return render (request,'StudentValidation.html', )
     return render(request,'StudentValidation.html',)
 
-#def userreg(request):
+def studenthomepage(request):
+
+    return render(request,'studenthomepage.html')
+
+
+def coursereg(request):
+
+    return render(request,'courseregistration.html')
+
+def updateprofile(request):
+
+    return render(request,'updateprofile.html')
+
+
+def result(request):
+
+    return render(request,'result.html')
 
 
 

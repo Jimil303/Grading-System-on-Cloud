@@ -1,0 +1,52 @@
+
+{% load static %}
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student-HomePage</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/student-style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
+	<script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
+</head>
+<body>
+	<div id="header">
+		
+		<ul id="navigation">
+			<li class="selected">
+				<a href="studenthomepage.html">Home</a>
+			</li>
+			
+			<li>
+				<a href="result.html">Result</a>
+			</li>
+			
+			<li>
+				<a href="courseregistration.html">Course Registration</a>
+			</li>
+			
+			<li>
+				<a href="Notification.html">notifications</a>
+			</li>
+			
+			<li>
+				<a href="StudentValidation.html">Update Profile</a>
+			</li>
+			
+		</ul>
+		<hr size="1" width="100%" color="grey">   
+	</div>
+	<div id="body">
+			<div>
+				<h2>Hello Student, Welcome to our Portal !</h2>
+		</div>
+		
+	</div>
+	<div id="footer">
+		<div>
+			<p>&copy; SRI 2021</p>
+		</div>
+	</div>
+</body>
+</html>

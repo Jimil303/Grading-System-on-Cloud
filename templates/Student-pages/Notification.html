@@ -1,11 +1,11 @@
-{% load static %}
+{%load static %}
 <!doctype html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Register Student</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<title>Notifications</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/notification.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
 	<script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
 </head>
@@ -14,9 +14,9 @@
 		
 		<ul id="navigation">
 			<li>
-				<a href="homepage.html">home</a>
+				<a href="homepage.html">HOME</a>
 			</li>
-			<li class="selected">
+			<li class="select">
                 <div class="dropdown">
                     <button class="dropbtn">REGISTER NEW USER</button>
                     <div class="dropdown-content">
@@ -29,7 +29,8 @@
 			<li>
 				<a href="Search.html">search</a>
 			</li>
-			<li>
+			<li class="selected">
+
 				<a href="Notification.html">notifications</a>
 			</li>
 			<li>
@@ -38,26 +39,41 @@
 		</ul>
 		<hr size="1" width="100%" color="grey">   
 	</div>
-	<div id="first">
-		<h1>Add a Student</h1>
-		<form	form method="POST">
-				{% csrf_token %}
-				{{ form.as_p}}
-				<button type="submit" class="btn-btn-primary">Submit</button>
-		</form>
+	<div class="notification-body">	
+		
+		<div class="small-div">
+			<span class="text"><a class="text-text" href="notifications-pending">Recieved</a></span>
 	</div>
-	<div id="second">
-		<h1>Add a list of Students</h1>
-		<br><br><br><br>
-		<form method = "POST" enctype = "multipart/form-data" action="reguser2">
-			{%csrf_token%}
-			<input name = "csvfile" type = "file">
-			<input type = "submit" value = "Upload">
-		</form>
+		<div class="small-div">
+			<span class="text"><a class="text-text" href="notifications-pending">Pending</a></span>
+	</div>
+		<div class="small-div">
+			<span class="text"><a class="text-text" href="notifications-pending">Sent</a></span>
+		</div>
+
+	</div>
+	<div class="notification-mail">
+		<table style="width:100%">
+			<tr>
+			<th>Firstname</th>
+			<th>Lastname</th>
+			<th>Age</th>
+			</tr>
+			<tr>
+			<td>Jill</td>
+			<td>Smith</td>
+			<td>50</td>
+			</tr>
+			<tr>
+			<td>Eve</td>
+			<td>Jackson</td>
+			<td>94</td>
+			</tr>
+		</table>
+
 	</div>
 
-	<div id="body">
-	</div>
+
 	<div id="footer">
 		<div>
 			<p>&copy; SRI 2021</p>
