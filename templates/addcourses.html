@@ -47,11 +47,22 @@
 		</ul>
 		<hr size="1" width="100%" color="grey">   
 	</div>
+    <div id="first">
+		<h1>Add a Course</h1>
+		<form	form method="POST" class="form">
+				{% csrf_token %}
+				{{ form.as_p}}
+				<button type="submit" class="btn-btn-primary">Submit</button>
+		</form>
+	</div>
+	<div id="second">
+		<form method = "POST" enctype = "multipart/form-data" action="addmanycourses">
+			{%csrf_token%}
+			<input name = "csvfile" type = "file">
+			<input type = "submit" value = "Upload">
+		</form>
+	</div>
 	<div id="body">
-			<div>
-				<h2>Welcome to our Portal !</h2>
-		</div>
-		
 	</div>
 	<div id="footer">
 		<div>

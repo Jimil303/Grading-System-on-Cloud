@@ -34,4 +34,6 @@ urlpatterns = [
     url('Search',views.search,name='Search'),
     url('Notification',views.notification,name='Notification'),
     url('StudentValidation',views.StudentValidation,name='StudentValidation'),
+    url('addcourses',views.addonecourse,name = 'Addonecourse'),
+    url('addmanycourses',views.addmanycourses,name = 'Addmanycourses')
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
