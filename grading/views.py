@@ -5,8 +5,7 @@ from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.core.files.storage import FileSystemStorage
-from grading.models import FacultyCredentials, Universities,messenger
-from grading.models import StudentCredentials
+from grading.models import FacultyCredentials, admin ,messenger, StudentCredentials
 from .forms import Myform , Myform2
 from datetime import datetime
 import csv
@@ -29,9 +28,9 @@ def loginfaculty(request):
 
 def loginadmin(request):
     if request.method == 'POST':
-        m = Universities.objects.get(username = request.POST['username'])
+        m = admin.objects.get(username = request.POST['username'])
         if m.password == request.POST['password']:
-            request.session['college'] = m.name
+            request.session['college'] = m.university
             #print(sess['college'])
             return render(request, 'homepage.html')
         else:
@@ -63,10 +62,11 @@ def reguser2(request):
             reader = csv.reader(f)
             for row in reader:
                 created = FacultyCredentials.objects.get_or_create(
-                    username = row[0],
-                    password = row[1],
-                    auth = False,
-                    university = row[2],
+                    name = row[0],
+                    phone = row[1],
+                    email = row[2],
+                    username = row[3],
+                    password = row[4],
                 )
                 try:
                     created.save()
@@ -97,10 +97,11 @@ def reguser4(request):
             reader = csv.reader(f)
             for row in reader:
                 created = StudentCredentials.objects.get_or_create(
-                    username = row[0],
-                    password = row[1],
-                    auth = False,
-                    university = row[2],
+                    name = row[0],
+                    phone = row[1],
+                    email = row[2],
+                    username = row[3],
+                    password = row[4],
                 )
                 try:
                     created.save()
@@ -113,6 +114,13 @@ def search(request):
     return render(request,'Search.html')
 
 def notification(request):
+    user = request.session['college']
+    
+    details = messenger.objects.filter(reciever = user,status = False).all()
+    
+    print(details[0].date)  
+    print(user)
+    
     return render(request,'Notification.html')
 
 def StudentValidation(request):
@@ -137,11 +145,11 @@ def StudentValidation(request):
             fileurl = upload_data,
             dated = datee,
             time = timee,
-            status = False,
-            remarks = "NIL",
+            status = 0,
+            remarks = "",
             nameStudent = name,
             sender = request.session['college'],
-            id=1
+            
         )
         try:
             created.save()
