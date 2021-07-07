@@ -16,16 +16,7 @@
 	url('../fonts/leckerlione/leckerlione-regular-webfont.svg#leckerli_oneregular') format('svg');
 }
 
-body {
-	background: #fff;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	font-weight: normal;
-	line-height: 1;
-	margin: 0;
-	min-width: 960px;
-	padding: 0;
-}
+
 #header {
 	margin: 0 auto;
 	padding: 44px 0 50px;
@@ -74,24 +65,14 @@ body {
 	text-align: center;
 	padding-top: 15%;
 }
-#body h1 {
-	color: #fff;
-	display: inline;
-	font-family: poller_oneregular;
-	font-size: 35px;
-	font-weight: normal;
-	margin: 0;
-	padding: 0;
-	text-transform: uppercase;
-}
 #footer {
 	background: #252525;
 	margin: 0;
 	padding: 36px 0 42px;
 	position:absolute;
-   bottom:0;
-   width:100%;
-   height:30px;
+    bottom:0;
+    width:100%;
+    height:30px;
 }
 #footer div {
 	margin: 0 auto;
@@ -122,15 +103,7 @@ body {
 	padding: 0;
 	width: 44px;
 }
-#footer div ul li a {
-	background: url(../images/icons.jpg) no-repeat 0 0;
-	display: block;
-	height: 44px;
-	margin: 0;
-	padding: 0;
-	text-indent: -99999px;
-	width: 44px;
-}
+
 .dropbtn {
 	background-color: #ffffff;
 	color:#252525;
@@ -140,13 +113,13 @@ body {
 }
 
   /* The container <div> - needed to position the dropdown content */
-  .dropdown {
+.dropdown {
 	position: relative;
 	display: inline-block;
-  }
-  
+}
+
   /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
+.dropdown-content {
 	display: none;
 	position: absolute;
 	background-color: #f1f1f1;
@@ -166,30 +139,30 @@ body {
   /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content{
 	display: block;
-	 padding: 16px 16px;
+	padding: 16px 16px;
 }
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {
-	  color: #0ba39c;}
 
-#first {
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+	color: #0ba39c;}
+
+#semester-dropdown {
+	text-align: center;
+		width: 30%;
+	}
+#course-list {
+	padding: 5% 5% 5% 5%;
+	margin: auto;
 	text-align: center;
 		width: 50%;
-		float: left;
-		height: 300px;
-		background-color: rgb(255, 255, 255);
-		border-right: solid 0.5px black;
-	}
-#second {
-	text-align: center;
-		width: 48%;
-		float: left;
-		height: 300px;
-		background-color: rgb(255, 255, 255);
-	}
+}
 
-input[id=id_username], select {
+#submit{
+	width: 20em;
+	height: 2em;
+}
+
+input[id=semester-search], select {
 		width: 40%;
 		border-radius: 5%;
 		padding: 12px 20px;
@@ -200,40 +173,7 @@ input[id=id_username], select {
 		box-sizing: border-box;
 		font-size: medium;
 }
-input[id=id_password], select {
-	width: 40%;
-	border-radius: 5%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-	font-size: medium;
-}
-input[id=id_university], select {
-	width: 40%;
-	border-radius: 5%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-	font-size: medium;
-}
 
-input[id=csvfile], select {
-		width: 40%;
-		border-radius: 5%;
-		padding: 12px 20px;
-		margin: 8px 0;
-		display: inline-block;
-		border: 1px solid #ccc;
-		border-radius: 4px;
-		box-sizing: border-box;
-		font-size: medium;
-}
 input[id=submit], select {
 	width: 40%;
 	border-radius: 5%;
@@ -246,37 +186,20 @@ input[id=submit], select {
 	font-size: medium;
 }
 
-.form{
-	text-align: center;
-	margin: auto;
-	width: 50%;
-	height: 300px;
-	background-color: rgb(255, 255, 255);
-	padding-top : 10%;
-	}
 
-	#name{
-		font-family: monospace;
-	}
-
-	#college{
-		font-family: monospace;
-	}
-
-
-.Search{
+.course-registration{
 padding-top: 1%;
 	text-align: center;
 	margin: auto;
 	width: 100%;
-	height: 150px;
+	height: 100%;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	font-size: 2em;
 	
 }
 
-input[id=Search], select {
-	width: 40%;
+input[id=courses], select {
+	width: 60%;
 	border-radius: 5%;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -287,44 +210,4 @@ input[id=Search], select {
 	font-size: medium;
 }
 
-input[id=name], select {
-	width: 40%;
-	border-radius: 5%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
 
-input[id=college], select {
-	width: 40%;
-	border-radius: 5%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-
-input[id=faculty-submit], select {
-	width: 40%;
-	border-radius: 5%;
-	margin: 8px 0;
-	padding: 12px 20px;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-
-.student-validation-form{
-	text-align: center;
-	margin: auto;
-	width: 50%;
-	height: 150px;
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-	font-size: 2em;
-}

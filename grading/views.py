@@ -5,7 +5,7 @@ from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.core.files.storage import FileSystemStorage
-from grading.models import FacultyCredentials, admin ,messenger, StudentCredentials
+from grading.models import FacultyCredentials, admin ,messenger, StudentCredentials,course
 from .forms import Myform , Myform2
 from datetime import datetime
 import csv
@@ -28,7 +28,7 @@ def loginfaculty(request):
 
 def loginadmin(request):
     if request.method == 'POST':
-        m = admin.objects.get(username = request.POST['username'])
+        m=admin.objects.get(username = request.POST['username'])
         if m.password == request.POST['password']:
             request.session['college'] = m.university
             #print(sess['college'])
@@ -96,7 +96,7 @@ def reguser4(request):
         with open(uploaded_to) as f:
             reader = csv.reader(f)
             for row in reader:
-                created = StudentCredentials.objects.get_or_create(
+                created=StudentCredentials.objects.get_or_create(
                     name = row[0],
                     phone = row[1],
                     email = row[2],
@@ -140,7 +140,7 @@ def StudentValidation(request):
         print(name)
         print(send_to)
         #print(sess["college"])
-        created = messenger.objects.get_or_create(
+        created=messenger.objects.get_or_create(
             reciever = send_to,
             fileurl = upload_data,
             dated = datee,
@@ -166,16 +166,23 @@ def coursereg(request):
 
     return render(request,'courseregistration.html')
 
-def updateprofile(request):
+def updateprofilestudent(request):
 
-    return render(request,'updateprofile.html')
+    return render(request,'updateprofilestudent.html')
 
 
 def result(request):
 
     return render(request,'result.html')
 
+def transcript(request):
+    
+    return render(request,'transcript.html')
 
 
+def shownames(request):
+    results=course.objects.all()
+    return render(request,"courseregistration.html",{"shownames":results})
+ 
 
 # Create your views here
