@@ -59,8 +59,8 @@ class course (models.Model):
     name = models.CharField(db_column='name',max_length=50)
     code = models.CharField(db_column='code',max_length=10)
     
-    def __str__(self):
-        return self.name
+    class Meta:
+        db_table = 'course'
 
 class semester (models.Model):
     id = models.AutoField(primary_key=True)

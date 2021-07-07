@@ -37,15 +37,26 @@
 			<li>
 				<a href="StudentValidation.html">send validation request</a>
 			</li>
+			<li>
+				<a href ="addcourses.html">add courses</a>
+			</li>
+			<li>
+				<a href="addsemester.html">add semesters</a>
+			</li>
 			
 		</ul>
 		<hr size="1" width="100%" color="grey">   
 	</div>
+    <div id="first">
+		<h1>Add a Semester</h1>
+		<form	form method="POST" class="form">
+				{% csrf_token %}
+				{{ form.as_p}}
+				<button type="submit" class="btn-btn-primary">Submit</button>
+		</form>
+	</div>
+	
 	<div id="body">
-			<div>
-				<h2>Welcome to our Portal !</h2>
-		</div>
-		
 	</div>
 	<div id="footer">
 		<div>

@@ -1,0 +1,116 @@
+
+{%load static %}
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HomePage</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
+	<script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
+</head>
+<body>
+	<div id="header">
+		
+		<ul id="navigation">
+			<li class="selected">
+				<a href="homepage.html">home</a>
+			</li>
+			<li class="select">
+                <div class="dropdown">
+                    <button class="dropbtn">REGISTER NEW USER</button>
+                    <div class="dropdown-content">
+                      <a class="diff" href="RegisterUsersstudent.html">Register Student</a>
+                      <a class="diff" href="RegisterUsersfaculty.html">Register Faculty</a>
+                    </div>
+                  </div>
+
+			</li>
+			<li>
+				<a href="Search.html">search</a>
+			</li>
+			<li>
+
+				<a href="Notification.html">notifications</a>
+			</li>
+			<li>
+				<a href="StudentValidation.html">send validation request</a>
+			</li>
+			<li>
+				<a href ="addcourses.html">add courses</a>
+			</li>
+			<li>
+				<a href="addsemester.html">add semesters</a>
+			</li>
+			
+		</ul>
+		<hr size="1" width="100%" color="grey">   
+	</div>
+    <div id="first">
+		<h1>Add Courses to a Semester</h1>
+		<form	form method="POST" class="form" action = "semcoursemapping">
+				{% csrf_token %}
+				Enter Semester Number: 
+                <input id="semno" type="number" name="semno">
+                Enter Year:
+                <input id = "Year" type = "number" name = "Year">
+                Select Courses:
+                <input list = "course1" name = "stcrs1" id = "stcsr1">
+                <input list = "course2" name = "stcrs2" id = "stcsr2">
+                <input list = "course3" name = "stcrs3" id = "stcsr3">
+                <input list = "course4" name = "stcrs4" id = "stcsr4">
+                <input list = "course5" name = "stcrs5" id = "stcsr5">
+                <input list = "course6" name = "stcrs6" id = "stcsr6"> 
+                <div id="course-list">
+                    <select id = "course1">
+                        <option disabled selected> Course I</option>
+                        {% for results in shownames %}
+                        <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <select id="course2">
+                        <option disabled selected> Course II</option>
+                        {% for results in shownames %}
+                        <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <select id="course3">
+                        <option disabled selected> Course III</option>
+                        {% for results in shownames %}
+                        <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <select id="course4">
+                        <option disabled selected> Course IV</option>
+                        {% for results in shownames %}
+                        <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <select id="course5">
+                        <option disabled selected> Course V</option>
+                        {% for results in shownames %}
+                        <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <select id="course6">
+                        <option disabled selected> Course VI</option>
+                        {% for results in shownames %}
+                        <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+				<button type="submit" class="btn-btn-primary">Submit</button>
+		</form>
+	</div>
+	
+	<div id="body">
+	</div>
+	
+</body>
+</html>

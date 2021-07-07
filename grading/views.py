@@ -5,8 +5,8 @@ from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.core.files.storage import FileSystemStorage
-from grading.models import FacultyCredentials, admin, course ,messenger, StudentCredentials,course
-from .forms import Myform , Myform2, Myform3
+from grading.models import FacultyCredentials, admin, course ,messenger, StudentCredentials,semester, semester_course_mapping
+from .forms import Myform , Myform2, Myform3, Myform4
 from datetime import datetime
 import csv
 import cloudinary
@@ -22,8 +22,8 @@ def loginstudent(request):
     if request.method == 'POST':
         m = StudentCredentials.objects.get(username = request.POST['username'])
         if m.password == request.POST['password']:
-            request.session['student_id'] = m.id
-            return render(request, 'homepage2.html')
+            request.session['student_id'] = m.stu_id
+            return render(request, 'studenthomepage.html')
         else:
             return render(request,'loginpagestudent.html')
     return render(request,'loginpagestudent.html')
@@ -68,11 +68,12 @@ def reguser2(request):
             reader = csv.reader(f)
             for row in reader:
                 created = FacultyCredentials.objects.get_or_create(
-                    name = row[0],
-                    phone = row[1],
-                    email = row[2],
-                    username = row[3],
-                    password = row[4],
+                    fac_id =row[0],
+                    name = row[1],
+                    phone = row[2],
+                    email = row[3],
+                    username = row[4],
+                    password = row[5],
                 )
                 try:
                     created.save()
@@ -103,11 +104,12 @@ def reguser4(request):
             reader = csv.reader(f)
             for row in reader:
                 created=StudentCredentials.objects.get_or_create(
-                    name = row[0],
-                    phone = row[1],
-                    email = row[2],
-                    username = row[3],
-                    password = row[4],
+                    stu_id =row[0],
+                    name = row[1],
+                    phone = row[2],
+                    email = row[3],
+                    username = row[4],
+                    password = row[5],
                 )
                 try:
                     created.save()
@@ -169,8 +171,9 @@ def studenthomepage(request):
 
 
 def coursereg(request):
-
-    return render(request,'courseregistration.html')
+    results = shownames(request)
+    print(results)
+    return render(request,'courseregistration.html',{'shownames' : results})
 
 def updateprofilestudent(request):
 
@@ -233,7 +236,39 @@ def addonecourse(request):
             form = Myform3()
     return render(request,'addcourses.html',{'form' : form})
 
+def addsemester(request):
+    if request.method =='POST':
+        form = Myform4(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+            form = Myform4()
+    return render(request,'addsemester.html',{'form' : form})
+
+def semcoursemapping(request):
+    courses = shownames(request)
+    if request.method == 'POST':
+        
+        semno = request.POST['semno']
+        years = request.POST['Year']
+        print(request.POST['stcsr1'])
+        print(semno)
+        print(years)
+        #cr1 = course.objects.get(code = request.POST['stcsr1'])
+        #cr2 = course.objects.get(request.POST['stcsr2'])
+        #cr3 = course.objects.get(request.POST['stcsr3'])
+        #cr4 = course.objects.get(request.POST['stcsr4'])
+        #cr5 = course.objects.get(request.POST['stcsr5'])
+        #cr6 = course.objects.get(request.POST['stcsr6'])
+        semid = semester.objects.get(year = years,number = semno)
+        #created = semester_course_mapping.objects.get_or_create(
+         #   semester_id = semid.id,
+          #  course_id = cr1.id
+        #)
+        #created.save()
+    return render(request,'semcoursemapping.html',{'shownames':courses})
+
 def shownames(request):
     results=course.objects.all()
-    return render(request,"courseregistration.html",{"shownames":results})
+    return results
 

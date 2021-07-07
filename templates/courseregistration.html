@@ -48,33 +48,32 @@
 
 			</datalist>
 		</div>
-
 		<div id="course-list">
 			<select name="course">
-				<option disabled selected> Course I</option>
+				<option disabled selected> Course I
 				{% for results in shownames %}
-				<option>{{results.name}}</option>
+				<option value = {{results.code}}>{{results.name}}-{{results.code}}
 				{% endfor %}
 			</select>
 			
 			<select>
 				<option disabled selected> Course II</option>
 				{% for results in shownames %}
-				<option>{{results.name}}</option>
+				<option>{{results.name}}-{{results.code}}</option>
 				{% endfor %}
 			</select>
 			
 			<select>
 				<option disabled selected> Course III</option>
 				{% for results in shownames %}
-				<option>{{results.name}}</option>
+				<option>{{results.name}}-{{results.code}}</option>
 				{% endfor %}
 			</select>
 			
 			<select>
 				<option disabled selected> Course IV</option>
 				{% for results in shownames %}
-				<option>{{results.name}}</option>
+				<option>{{results.name}}-{{results.code}}</option>
 				{% endfor %}
 			</select>
 			
@@ -82,14 +81,14 @@
 				<option disabled selected> Course V</option>
 				
 				{% for results in shownames %}
-				<option>{{results.name}}</option>
+				<option>{{results.name}}-{{results.code}}</option>
 				{% endfor %}
 			</select>
 			
 			<select>
 				<option disabled selected> Course VI</option>
 				{% for results in shownames %}
-				<option>{{results.name}}</option>
+				<option>{{results.name}}-{{results.code}}</option>
 				{% endfor %}
 			</select>
 		</div>
@@ -98,11 +97,9 @@
 			<button id="submit" type="submit">Submit</button>
         </div>
 	</div>
-	<div id="footer">
-		<div>
-			<p>&copy; SRI 2021</p>
-		</div>
+	
 	</div>
+	
 </body>
 
 </html>

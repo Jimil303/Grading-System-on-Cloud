@@ -1,20 +1,20 @@
 from django import forms
 from django.db.models import fields
-from grading.models import FacultyCredentials,StudentCredentials, course, messenger
+from grading.models import FacultyCredentials,StudentCredentials, course, messenger, semester
 
 class Myform (forms.ModelForm):
  class Meta:
         model = FacultyCredentials
-        fields = ['id','name','phone','email','username', 'password']
-        exclude =['id']
-        labels = {'name':"Full Name",'phone':"Phone no",'email':"e-mail",'username': "Username", 'password': "Password"}
+        fields = ['fac_id','name','phone','email','username', 'password']
+        exclude =[]
+        labels = {'fac_id':"Faculty ID",'name':"Full Name",'phone':"Phone no",'email':"e-mail",'username': "Username", 'password': "Password"}
 
 class Myform2 (forms.ModelForm):
  class Meta:
         model = StudentCredentials
-        fields = ['id','name','phone','email','username', 'password']
-        exclude =['id']
-        labels = {'name':"Full Name",'phone':"Phone no",'email':"e-mail",'username': "Username", 'password': "Password"}
+        fields = ['stu_id','name','phone','email','username', 'password']
+        exclude =[]
+        labels = {'stu_id':"Student ID",'name':"Full Name",'phone':"Phone no",'email':"e-mail",'username': "Username", 'password': "Password"}
 
 class Myform3 (forms.ModelForm):
        class Meta:
@@ -22,3 +22,11 @@ class Myform3 (forms.ModelForm):
               fields = ['id','name','code']
               exclude = ['id']
               labels = {'name' : "Course Name",'code':"Course Code"}
+
+class Myform4(forms.ModelForm):
+       class Meta:
+              model = semester
+              fields = ['year','type','number']
+              exclude= []
+              labels = {'year':"Year",'type':"Name",'number':"Semester Number"}
+
