@@ -5,8 +5,8 @@ from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.core.files.storage import FileSystemStorage
-from grading.models import FacultyCredentials, admin ,messenger, StudentCredentials,course
-from .forms import Myform , Myform2
+from grading.models import FacultyCredentials, admin, course ,messenger, StudentCredentials,course
+from .forms import Myform , Myform2, Myform3
 from datetime import datetime
 import csv
 import cloudinary
@@ -19,8 +19,14 @@ def login(request):
     return render(request,'login.html')
 
 def loginstudent(request):
-    
-    return render(request,'loginpagestudent.html',)
+    if request.method == 'POST':
+        m = StudentCredentials.objects.get(username = request.POST['username'])
+        if m.password == request.POST['password']:
+            request.session['student_id'] = m.id
+            return render(request, 'homepage2.html')
+        else:
+            return render(request,'loginpagestudent.html')
+    return render(request,'loginpagestudent.html')
 
 def loginfaculty(request):
     return render(request,'loginpagefaculty.html')
@@ -179,10 +185,55 @@ def transcript(request):
     
     return render(request,'transcript.html')
 
+def addmanycourses(request):
+    if request.method == 'POST':
+        fileobj = request.FILES['csvfile']
+        fs = FileSystemStorage()
+        filePathName = fs.save(fileobj.name, fileobj)
+        uploaded_to = fs.path(filePathName)
+        print(uploaded_to)
+        with open(uploaded_to) as f:
+            reader = csv.reader(f)
+            for row in reader:
+                created = course.objects.get_or_create(
+                    name = row[0],
+                    code = row[1],
+                )
+                try:
+                    created.save()
+                except:
+                    continue
+    return render(request,'addcourses.html')
+def addmanycourses(request):
+    if request.method == 'POST':
+        fileobj = request.FILES['csvfile']
+        fs = FileSystemStorage()
+        filePathName = fs.save(fileobj.name, fileobj)
+        uploaded_to = fs.path(filePathName)
+        print(uploaded_to)
+        with open(uploaded_to) as f:
+            reader = csv.reader(f)
+            for row in reader:
+                created = course.objects.get_or_create(
+                    name = row[0],
+                    code = row[1],
+                )
+                try:
+                    created.save()
+                except:
+                    continue
+    return render(request,'addcourses.html')
+
+def addonecourse(request):
+    if request.method == 'POST':
+        form = Myform3(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+            form = Myform3()
+    return render(request,'addcourses.html',{'form' : form})
 
 def shownames(request):
     results=course.objects.all()
     return render(request,"courseregistration.html",{"shownames":results})
- 
 
-# Create your views here
