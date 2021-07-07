@@ -1,6 +1,7 @@
 from os import truncate
 from django import db
 from django.db import models
+from django.db import connection
 from django.db.models.fields import CharField
 
 class admin (models.Model):
@@ -57,9 +58,9 @@ class course (models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(db_column='name',max_length=50)
     code = models.CharField(db_column='code',max_length=10)
-
-    class Meta:
-        db_table = 'course'
+    
+    def __str__(self):
+        return self.name
 
 class semester (models.Model):
     id = models.AutoField(primary_key=True)
@@ -103,4 +104,5 @@ class faculty_course_mapping (models.Model):
 
     class Meta:
         db_table = 'faculty_course_mapping'
+
 # Create your models here.

@@ -16,8 +16,7 @@
 	url('../fonts/leckerlione/leckerlione-regular-webfont.svg#leckerli_oneregular') format('svg');
 }
 
-body {
-}
+
 #header {
 	margin: 0 auto;
 	padding: 44px 0 50px;
@@ -71,9 +70,9 @@ body {
 	margin: 0;
 	padding: 36px 0 42px;
 	position:absolute;
-   bottom:0;
-   width:100%;
-   height:30px;
+    bottom:0;
+    width:100%;
+    height:30px;
 }
 #footer div {
 	margin: 0 auto;
@@ -104,15 +103,7 @@ body {
 	padding: 0;
 	width: 44px;
 }
-#footer div ul li a {
-	background: url(../images/icons.jpg) no-repeat 0 0;
-	display: block;
-	height: 44px;
-	margin: 0;
-	padding: 0;
-	text-indent: -99999px;
-	width: 44px;
-}
+
 .dropbtn {
 	background-color: #ffffff;
 	color:#252525;
@@ -155,68 +146,42 @@ body {
 .dropdown:hover .dropbtn {
 	color: #0ba39c;}
 
-#semester-dropdown {
-	text-align: center;
-		width: 30%;
-	}
-#course-list {
-	padding: 5% 5% 5% 5%;
-	margin: auto;
-	text-align: center;
-		width: 50%;
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 
-#submit{
-	width: 20em;
-	height: 2em;
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
 }
 
-input[id=semester-search], select {
-		width: 40%;
-		border-radius: 5%;
-		padding: 12px 20px;
-		margin: 8px 0;
-		display: inline-block;
-		border: 1px solid #ccc;
-		border-radius: 4px;
-		box-sizing: border-box;
-		font-size: medium;
+.result-div{
+    width: 80%;
+    margin: auto;
 }
 
-input[id=submit], select {
-	width: 40%;
-	border-radius: 5%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-	font-size: medium;
+.result-btn{
+    height: 100%;
+    width: 30%;
+    appearance: button;
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(109, 105, 105);
+    color: white;
 }
 
-
-.course-registration{
-padding-top: 1%;
-	text-align: center;
-	margin: auto;
-	width: 100%;
-	height: 100%;
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-	font-size: 2em;
-	
+.head{
+    margin: auto;
+    padding: 10px;
+    width: 20%;
+    text-align: center;
+    height: 50px;
+    font-size: xx-large;
 }
-
-input[id=courses], select {
-	width: 60%;
-	border-radius: 5%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-	font-size: medium;
-}
-
-

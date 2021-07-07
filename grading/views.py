@@ -5,7 +5,7 @@ from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.core.files.storage import FileSystemStorage
-from grading.models import FacultyCredentials, admin, course ,messenger, StudentCredentials
+from grading.models import FacultyCredentials, admin, course ,messenger, StudentCredentials,course
 from .forms import Myform , Myform2, Myform3
 from datetime import datetime
 import csv
@@ -34,7 +34,7 @@ def loginfaculty(request):
 
 def loginadmin(request):
     if request.method == 'POST':
-        m = admin.objects.get(username = request.POST['username'])
+        m=admin.objects.get(username = request.POST['username'])
         if m.password == request.POST['password']:
             request.session['college'] = m.university
             #print(sess['college'])
@@ -102,7 +102,7 @@ def reguser4(request):
         with open(uploaded_to) as f:
             reader = csv.reader(f)
             for row in reader:
-                created = StudentCredentials.objects.get_or_create(
+                created=StudentCredentials.objects.get_or_create(
                     name = row[0],
                     phone = row[1],
                     email = row[2],
@@ -146,7 +146,7 @@ def StudentValidation(request):
         print(name)
         print(send_to)
         #print(sess["college"])
-        created = messenger.objects.get_or_create(
+        created=messenger.objects.get_or_create(
             reciever = send_to,
             fileurl = upload_data,
             dated = datee,
@@ -163,6 +163,47 @@ def StudentValidation(request):
             return render (request,'StudentValidation.html', )
     return render(request,'StudentValidation.html',)
 
+def studenthomepage(request):
+
+    return render(request,'studenthomepage.html')
+
+
+def coursereg(request):
+
+    return render(request,'courseregistration.html')
+
+def updateprofilestudent(request):
+
+    return render(request,'updateprofilestudent.html')
+
+
+def result(request):
+
+    return render(request,'result.html')
+
+def transcript(request):
+    
+    return render(request,'transcript.html')
+
+def addmanycourses(request):
+    if request.method == 'POST':
+        fileobj = request.FILES['csvfile']
+        fs = FileSystemStorage()
+        filePathName = fs.save(fileobj.name, fileobj)
+        uploaded_to = fs.path(filePathName)
+        print(uploaded_to)
+        with open(uploaded_to) as f:
+            reader = csv.reader(f)
+            for row in reader:
+                created = course.objects.get_or_create(
+                    name = row[0],
+                    code = row[1],
+                )
+                try:
+                    created.save()
+                except:
+                    continue
+    return render(request,'addcourses.html')
 def addmanycourses(request):
     if request.method == 'POST':
         fileobj = request.FILES['csvfile']
@@ -192,5 +233,7 @@ def addonecourse(request):
             form = Myform3()
     return render(request,'addcourses.html',{'form' : form})
 
-#def userreg(request):
+def shownames(request):
+    results=course.objects.all()
+    return render(request,"courseregistration.html",{"shownames":results})
 

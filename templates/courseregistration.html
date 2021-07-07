@@ -1,4 +1,4 @@
-{% load static %}
+{%load static %}
 <!doctype html>
 <html>
 <head>
@@ -27,7 +27,7 @@
 				<a href="Notification.html">notifications</a>
 			</li>
 			<li>
-				<a href="updateprofile-student.html">Update Profile</a>
+				<a href="updateprofilestudent.html">Update Profile</a>
 			</li>
 		</ul>
 		<hr size="1" width="100%" color="grey">   
@@ -50,25 +50,59 @@
 		</div>
 
 		<div id="course-list">
-			<input id="courses" type="text" placeholder="Course I" required="required"/>
-			<input id="courses" type="text" placeholder="Course II" required="required"/>
-			<input id="courses" type="text" placeholder="Course III" required="required"/>
-			<input id="courses" type="text" placeholder="Course IV" required="required"/>
-			<input id="courses" type="text" placeholder="Course V" required="required"/>
-			<input id="courses" type="text" placeholder="Course VI" required="required"/>
+			<select name="course">
+				<option disabled selected> Course I</option>
+				{% for results in shownames %}
+				<option>{{results.name}}</option>
+				{% endfor %}
+			</select>
+			
+			<select>
+				<option disabled selected> Course II</option>
+				{% for results in shownames %}
+				<option>{{results.name}}</option>
+				{% endfor %}
+			</select>
+			
+			<select>
+				<option disabled selected> Course III</option>
+				{% for results in shownames %}
+				<option>{{results.name}}</option>
+				{% endfor %}
+			</select>
+			
+			<select>
+				<option disabled selected> Course IV</option>
+				{% for results in shownames %}
+				<option>{{results.name}}</option>
+				{% endfor %}
+			</select>
+			
+			<select>
+				<option disabled selected> Course V</option>
+				
+				{% for results in shownames %}
+				<option>{{results.name}}</option>
+				{% endfor %}
+			</select>
+			
+			<select>
+				<option disabled selected> Course VI</option>
+				{% for results in shownames %}
+				<option>{{results.name}}</option>
+				{% endfor %}
+			</select>
 		</div>
-		
-		
 
 		<div>
 			<button id="submit" type="submit">Submit</button>
         </div>
 	</div>
-
-</body>
-<div id="footer">
-	<div>
-		<p>&copy; SRI 2021</p>
+	<div id="footer">
+		<div>
+			<p>&copy; SRI 2021</p>
+		</div>
 	</div>
-</div>
+</body>
+
 </html>
