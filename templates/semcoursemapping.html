@@ -56,49 +56,44 @@
                 Enter Year:
                 <input id = "Year" type = "number" name = "Year">
                 Select Courses:
-                <input list = "course1" name = "stcrs1" id = "stcsr1">
-                <input list = "course2" name = "stcrs2" id = "stcsr2">
-                <input list = "course3" name = "stcrs3" id = "stcsr3">
-                <input list = "course4" name = "stcrs4" id = "stcsr4">
-                <input list = "course5" name = "stcrs5" id = "stcsr5">
-                <input list = "course6" name = "stcrs6" id = "stcsr6"> 
-                <div id="course-list">
-                    <select id = "course1">
+                
+                <div id="course-list" >
+                    <select id = "course1" name = "course1">
                         <option disabled selected> Course I</option>
                         {% for results in shownames %}
                         <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
                         {% endfor %}
                     </select>
                     
-                    <select id="course2">
+                    <select id="course2" name= "course2">
                         <option disabled selected> Course II</option>
                         {% for results in shownames %}
                         <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
                         {% endfor %}
                     </select>
                     
-                    <select id="course3">
+                    <select id="course3" name = "course3">
                         <option disabled selected> Course III</option>
                         {% for results in shownames %}
                         <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
                         {% endfor %}
                     </select>
                     
-                    <select id="course4">
+                    <select id="course4" name = "course4">
                         <option disabled selected> Course IV</option>
                         {% for results in shownames %}
                         <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
                         {% endfor %}
                     </select>
                     
-                    <select id="course5">
+                    <select id="course5" name = "course5">
                         <option disabled selected> Course V</option>
                         {% for results in shownames %}
                         <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
                         {% endfor %}
                     </select>
                     
-                    <select id="course6">
+                    <select id="course6" name = "course6">
                         <option disabled selected> Course VI</option>
                         {% for results in shownames %}
                         <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>

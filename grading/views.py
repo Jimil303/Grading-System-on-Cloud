@@ -251,21 +251,53 @@ def semcoursemapping(request):
         
         semno = request.POST['semno']
         years = request.POST['Year']
-        print(request.POST['stcsr1'])
         print(semno)
         print(years)
-        #cr1 = course.objects.get(code = request.POST['stcsr1'])
-        #cr2 = course.objects.get(request.POST['stcsr2'])
-        #cr3 = course.objects.get(request.POST['stcsr3'])
-        #cr4 = course.objects.get(request.POST['stcsr4'])
-        #cr5 = course.objects.get(request.POST['stcsr5'])
-        #cr6 = course.objects.get(request.POST['stcsr6'])
         semid = semester.objects.get(year = years,number = semno)
-        #created = semester_course_mapping.objects.get_or_create(
-         #   semester_id = semid.id,
-          #  course_id = cr1.id
-        #)
-        #created.save()
+        print(semid)
+        if request.POST['course1']:
+            cr1 = course.objects.get(code = request.POST['course1'])
+            semester_course_mapping.objects.get_or_create(
+                semester_id = semid.id,
+                course_id = cr1.id
+            )
+            
+        if request.POST['course2']:
+            cr2 = course.objects.get(code = request.POST['course2'])
+            semester_course_mapping.objects.get_or_create(
+                semester_id = semid.id,
+                course_id = cr2.id
+            )
+            
+        if request.POST['course3']:
+            cr3 = course.objects.get(code = request.POST['course3'])
+            semester_course_mapping.objects.get_or_create(
+                semester_id = semid.id,
+                course_id = cr3.id
+            )
+            
+        if request.POST['course4']:
+            cr4 = course.objects.get(code = request.POST['course4'])
+            semester_course_mapping.objects.get_or_create(
+                semester_id = semid.id,
+                course_id = cr4.id
+            )
+            
+        if request.POST['course5']:
+            cr5 = course.objects.get(code = request.POST['course5'])
+            semester_course_mapping.objects.get_or_create(
+                semester_id = semid.id,
+                course_id = cr5.id
+            )
+            
+        if request.POST['course6']:
+            cr6 = course.objects.get(code = request.POST['course6'])
+            semester_course_mapping.objects.get_or_create(
+                semester_id = semid.id,
+                course_id = cr6.id
+            )
+                
+        
     return render(request,'semcoursemapping.html',{'shownames':courses})
 
 def shownames(request):
