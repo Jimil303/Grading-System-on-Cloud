@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-   path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('homepage.html',views.index, name = 'home'),
     path('', views.login, name='login'),
     url('loginstudent', views.studenthomepage, name='homepage'),
@@ -37,6 +37,7 @@ urlpatterns = [
     url('StudentValidation',views.StudentValidation,name='StudentValidation'),
     url('studenthomepage',views.studenthomepage,name='studenthomepage'),
     url('result',views.result,name='result'),
+    url('selectsemester',views.selectsem,name = 'selectsemester'),
     url('courseregistration',views.coursereg,name='courseregistration'),
     url('shownames',views.shownames,name='shownames'),
     url('updateprofilestudent',views.updateprofilestudent,name='updateprofile'),

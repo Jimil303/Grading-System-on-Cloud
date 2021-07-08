@@ -17,6 +17,14 @@
 }
 
 body {
+	background: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1;
+	margin: 0;
+	min-width: 960px;
+	padding: 0;
 }
 #header {
 	margin: 0 auto;
@@ -156,9 +164,10 @@ body {
 	color: #0ba39c;}
 
 #semester-dropdown {
+	margin: auto;
 	text-align: center;
-		width: 30%;
-	}
+	width: 60%;
+}
 #course-list {
 	padding: 5% 5% 5% 5%;
 	margin: auto;

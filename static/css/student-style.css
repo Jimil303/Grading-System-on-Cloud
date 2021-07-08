@@ -16,7 +16,16 @@
 	url('../fonts/leckerlione/leckerlione-regular-webfont.svg#leckerli_oneregular') format('svg');
 }
 
-
+body {
+	background: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1;
+	margin: 0;
+	min-width: 960px;
+	padding: 0;
+}
 #header {
 	margin: 0 auto;
 	padding: 44px 0 50px;
@@ -70,9 +79,9 @@
 	margin: 0;
 	padding: 36px 0 42px;
 	position:absolute;
-    bottom:0;
-    width:100%;
-    height:30px;
+   bottom:0;
+   width:100%;
+   height:30px;
 }
 #footer div {
 	margin: 0 auto;
@@ -103,7 +112,15 @@
 	padding: 0;
 	width: 44px;
 }
-
+#footer div ul li a {
+	background: url(../images/icons.jpg) no-repeat 0 0;
+	display: block;
+	height: 44px;
+	margin: 0;
+	padding: 0;
+	text-indent: -99999px;
+	width: 44px;
+}
 .dropbtn {
 	background-color: #ffffff;
 	color:#252525;
@@ -147,9 +164,11 @@
 	color: #0ba39c;}
 
 #semester-dropdown {
+	padding-top: 5%;
+	margin: auto;
 	text-align: center;
-		width: 30%;
-	}
+	width: 60%;
+}
 #course-list {
 	padding: 5% 5% 5% 5%;
 	margin: auto;
@@ -158,7 +177,7 @@
 }
 
 #submit{
-	width: 20em;
+	width: min-content;
 	height: 2em;
 }
 

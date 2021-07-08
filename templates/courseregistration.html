@@ -20,7 +20,7 @@
 				<a href="result.html">Result</a>
 			</li>
 			<li class="selected">
-				<a href="courseregistration.html">Course Registration</a>
+				<a href="selectsemester.html">Course Registration</a>
 			</li>
 			<li>
 
@@ -48,58 +48,61 @@
 
 			</datalist>
 		</div>
+
 		<div id="course-list">
-			<select name="course">
-				<option disabled selected> Course I
+			<select id="stcrs1" name="course">
+				<option disabled selected> Course I</option>
 				{% for results in shownames %}
-				<option value = {{results.code}}>{{results.name}}-{{results.code}}
+				<option>{{results.name}}</option>
 				{% endfor %}
 			</select>
 			
-			<select>
+			<select id="stcrs2">
 				<option disabled selected> Course II</option>
 				{% for results in shownames %}
-				<option>{{results.name}}-{{results.code}}</option>
+				<option>{{results.name}}</option>
 				{% endfor %}
 			</select>
 			
-			<select>
+			<select id="stcrs3">
 				<option disabled selected> Course III</option>
 				{% for results in shownames %}
-				<option>{{results.name}}-{{results.code}}</option>
+				<option>{{results.name}}</option>
 				{% endfor %}
 			</select>
 			
-			<select>
+			<select id="stcrs4">
 				<option disabled selected> Course IV</option>
 				{% for results in shownames %}
-				<option>{{results.name}}-{{results.code}}</option>
+				<option>{{results.name}}</option>
 				{% endfor %}
 			</select>
 			
-			<select>
+			<select id="stcrs5">
 				<option disabled selected> Course V</option>
 				
 				{% for results in shownames %}
-				<option>{{results.name}}-{{results.code}}</option>
+				<option>{{results.name}}</option>
 				{% endfor %}
 			</select>
 			
-			<select>
+			<select id="stcrs6">
 				<option disabled selected> Course VI</option>
 				{% for results in shownames %}
-				<option>{{results.name}}-{{results.code}}</option>
+				<option>{{results.name}}</option>
 				{% endfor %}
 			</select>
 		</div>
 
 		<div>
-			<button id="submit" type="submit">Submit</button>
+			<input id="submit" value="Submit"/>
         </div>
 	</div>
-	
+	<div id="footer">
+		<div>
+			<p>&copy; SRI 2021</p>
+		</div>
 	</div>
-	
 </body>
 
 </html>

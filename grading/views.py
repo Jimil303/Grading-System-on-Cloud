@@ -175,6 +175,9 @@ def coursereg(request):
     print(results)
     return render(request,'courseregistration.html',{'shownames' : results})
 
+def selectsem(request):
+    return render(request,'selectsemester.html')
+
 def updateprofilestudent(request):
 
     return render(request,'updateprofilestudent.html')
