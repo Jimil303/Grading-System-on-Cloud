@@ -34,75 +34,57 @@
 	</div>
 	<div class="course-registration">
 		<p>Register for your Courses</p>
-		<div id="semester-dropdown">
-			<input list="semester-list" id="semester-search" type="text" placeholder="Select Semester" required="required"/>
-			<datalist id="semester-list">
-				<option value="Semester I"></option>
-				<option value="Semester II"></option>
-				<option value="Semester III"></option>
-				<option value="Semester IV"></option>
-				<option value="Semester V"></option>
-				<option value="Semester VI"></option>
-				<option value="Semester VII"></option>
-				<option value="Semester VIII"></option>
-
-			</datalist>
-		</div>
-
-		<div id="course-list">
-			<select id="stcrs1" name="course">
+		
+		<form	form method="POST" class="form" action = "coursereg">
+			{%csrf_token%}
+		<div id="course-list" >
+			<select id = "course1" name = "course1">
 				<option disabled selected> Course I</option>
 				{% for results in shownames %}
-				<option>{{results.name}}</option>
+				<option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
 				{% endfor %}
 			</select>
 			
-			<select id="stcrs2">
+			<select id="course2" name= "course2">
 				<option disabled selected> Course II</option>
 				{% for results in shownames %}
-				<option>{{results.name}}</option>
+				<option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
 				{% endfor %}
 			</select>
 			
-			<select id="stcrs3">
+			<select id="course3" name = "course3">
 				<option disabled selected> Course III</option>
 				{% for results in shownames %}
-				<option>{{results.name}}</option>
+				<option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
 				{% endfor %}
 			</select>
 			
-			<select id="stcrs4">
+			<select id="course4" name = "course4">
 				<option disabled selected> Course IV</option>
 				{% for results in shownames %}
-				<option>{{results.name}}</option>
+				<option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
 				{% endfor %}
 			</select>
 			
-			<select id="stcrs5">
+			<select id="course5" name = "course5">
 				<option disabled selected> Course V</option>
-				
 				{% for results in shownames %}
-				<option>{{results.name}}</option>
+				<option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
 				{% endfor %}
 			</select>
 			
-			<select id="stcrs6">
+			<select id="course6" name = "course6">
 				<option disabled selected> Course VI</option>
 				{% for results in shownames %}
-				<option>{{results.name}}</option>
+				<option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
 				{% endfor %}
 			</select>
 		</div>
-
-		<div>
-			<input id="submit" value="Submit"/>
-        </div>
+		<button type="submit" class="btn-btn-primary">Submit</button>
+</form>
+</div>
 	</div>
-	<div id="footer">
-		<div>
-			<p>&copy; SRI 2021</p>
-		</div>
-	</div>
+	
 </body>
 
 </html>

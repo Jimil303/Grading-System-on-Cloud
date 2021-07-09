@@ -5,7 +5,8 @@ from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.core.files.storage import FileSystemStorage
-from grading.models import FacultyCredentials, admin, course ,messenger, StudentCredentials,semester, semester_course_mapping
+from django.utils.functional import empty
+from grading.models import FacultyCredentials, admin, course ,messenger, StudentCredentials,semester, semester_course_mapping, student_course_mapping
 from .forms import Myform , Myform2, Myform3, Myform4
 from datetime import datetime
 import csv
@@ -171,11 +172,93 @@ def studenthomepage(request):
 
 
 def coursereg(request):
-    results = shownames(request)
-    print(results)
-    return render(request,'courseregistration.html',{'shownames' : results})
+    if request.method == 'POST':
+        stu_id = request.session['student_id']
+        print(request.session['sem'])
+        print(stu_id)
+        #print(request.session['year'])
+        semid = semester.objects.get(year = request.session['year'],number = request.session['sem'])
+        if request.POST.get('course1'):
+            cr1 = course.objects.get(code = request.POST['course1'])
+            sem_cr_mp = semester_course_mapping.objects.get(semester_id = semid.id, course_id = cr1.id)
+            student_course_mapping.objects.get_or_create(
+                student_id = stu_id,
+                semester_course_mapping_id = sem_cr_mp.id
+            )
+        if request.POST.get('course2'):
+            cr1 = course.objects.get(code = request.POST['course2'])
+            sem_cr_mp = semester_course_mapping.objects.get(semester_id = semid.id, course_id = cr1.id)
+            student_course_mapping.objects.get_or_create(
+                student_id = stu_id,
+                semester_course_mapping_id = sem_cr_mp.id
+            ) 
+        if request.POST.get('course3'):
+            cr1 = course.objects.get(code = request.POST['course3'])
+            sem_cr_mp = semester_course_mapping.objects.get(semester_id = semid.id, course_id = cr1.id)
+            student_course_mapping.objects.get_or_create(
+                student_id = stu_id,
+                semester_course_mapping_id = sem_cr_mp.id
+            )
+        if request.POST.get('course4'):
+            cr1 = course.objects.get(code = request.POST['course4'])
+            sem_cr_mp = semester_course_mapping.objects.get(semester_id = semid.id, course_id = cr1.id)
+            student_course_mapping.objects.get_or_create(
+                student_id = stu_id,
+                semester_course_mapping_id = sem_cr_mp.id
+            ) 
+        if request.POST.get('course5'):
+            cr1 = course.objects.get(code = request.POST['course5'])
+            sem_cr_mp = semester_course_mapping.objects.get(semester_id = semid.id, course_id = cr1.id)
+            student_course_mapping.objects.get_or_create(
+                student_id = stu_id,
+                semester_course_mapping_id = sem_cr_mp.id
+            )
+        if request.POST.get('course6'):
+            cr1 = course.objects.get(code = request.POST['course6'])
+            sem_cr_mp = semester_course_mapping.objects.get(semester_id = semid.id, course_id = cr1.id)
+            student_course_mapping.objects.get_or_create(
+                student_id = stu_id,
+                semester_course_mapping_id = sem_cr_mp.id
+            ) 
+    return render(request,'courseregistration.html')
 
 def selectsem(request):
+    results = shownames(request)
+    if request.method == 'POST':
+        if request.POST['sem'] == "Semester I":
+            request.session['sem'] = 1
+            request.session['year'] = request.POST['year']
+            return render(request,'courseregistration.html',{'shownames' : results})
+        elif request.POST['sem'] == "Semester II":
+            request.session['sem'] = 2
+            request.session['year'] = request.POST['year']
+            return render(request,'courseregistration.html',{'shownames' : results})
+        elif request.POST['sem'] == "Semester III":
+            request.session['sem'] = 3
+            request.session['year'] = request.POST['year']
+            return render(request,'courseregistration.html',{'shownames' : results})
+        elif request.POST['sem'] == "Semester IV":
+            request.session['sem'] = 4
+            request.session['year'] = request.POST['year']
+            return render(request,'courseregistration.html',{'shownames' : results})
+        elif request.POST['sem'] == "Semester V":
+            request.session['sem'] = 5
+            request.session['year'] = request.POST['year']
+            return render(request,'courseregistration.html',{'shownames' : results})
+        elif request.POST['sem'] == "Semester VI":
+            request.session['sem'] = 6
+            request.session['year'] = request.POST['year']
+            return render(request,'courseregistration.html',{'shownames' : results})
+        elif request.POST['sem'] == "Semester VII":
+            request.session['sem'] = 7
+            request.session['year'] = request.POST['year']
+            return render(request,'courseregistration.html',{'shownames' : results})
+        elif request.POST['sem'] == "Semester VIII":
+            request.session['sem'] = 8
+            request.session['year'] = request.POST['year']
+            return render(request,'courseregistration.html',{'shownames' : results})
+        else:
+            return render(request,'selectsemester.html')
     return render(request,'selectsemester.html')
 
 def updateprofilestudent(request):

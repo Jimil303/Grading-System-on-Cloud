@@ -35,7 +35,15 @@
 	<div class="course-registration">
 		<p>Register for your Courses</p>
 		<div id="semester-dropdown">
-			<input list="semester-list" id="semester-search" type="text" placeholder="Select Semester" required="required"/>
+			<form method  = "POST" enctype = "multipart/form-data" action = "selectsem">
+				{%csrf_token%}
+			Enter Year:
+			<input id = "year" name = "year" type = "number" required = "required"><br>
+			<input list="semester-list" id="sem" name = "sem" type="text" placeholder="Select Semester" required="required"/>
+			<br>
+			<button id="submit" value="Submit">Submit</button>
+		</form>
+
 			<datalist id="semester-list">
 				<option value="Semester I"></option>
 				<option value="Semester II"></option>
@@ -49,9 +57,9 @@
 			</datalist>
 		</div>
 
-		<div>
-			<button id="submit" value="Submit">Submit</button>
-        </div>
+		
+			
+        
 	</div>
 	<div id="footer">
 		<div>
