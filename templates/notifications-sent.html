@@ -64,18 +64,20 @@
 	<div class="notification-mail">
 		<table style="width:100%">
 			<tr>
-				<th>Sender</th>
+				<th>Sent To</th>
 				<th>Student Name</th>
 				<th>Date</th>
 				<th>Time</th>
+                <th>Status</th>
 				<th>File Link</th>
 				</tr>
 				<tr>
 				{% for x in det%}
-				<td>{{x.sender}}</td>
+				<td>{{x.reciever}}</td>
 				<td>{{x.nameStudent}}</td>
 				<td>{{x.dated}}</td>
 				<td>{{x.time}}</td>
+                <td>{{x.status}}</td>
 				<td>{{x.fileurl}}</td>
 				{%endfor%}
 			</tr>

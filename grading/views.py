@@ -125,12 +125,21 @@ def search(request):
 def notification(request):
     user = request.session['college']
     
-    details = messenger.objects.filter(reciever = user,status = False).all()
+    details = messenger.objects.filter(reciever = user).order_by('dated').all()
+    print(details)
+    return render(request,'Notification.html',{'det' : details})
+def notification_pending(request):
+    user = request.session['college']
     
-    print(details[0].date)  
-    print(user)
+    details = messenger.objects.filter(reciever = user,status = 0).order_by('dated').all()
+    print(details)
+    return render(request,'notifications-pending.html',{'det' : details})
+def notification_sent(request):
+    user = request.session['college']
     
-    return render(request,'Notification.html')
+    details = messenger.objects.filter(sender = user).order_by('dated').all()
+    print(details)
+    return render(request,'notifications-sent.html',{'det' : details})
 
 def StudentValidation(request):
     if request.method == 'POST':
