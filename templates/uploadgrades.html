@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Upload Grades</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/faculty-style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
+</head>
+<body>
+	<div id="header">
+		
+		<ul id="navigation">
+			<li>
+				<a href="facultyhomepage.html">Home</a>
+			</li>
+			<li class="selected">
+                <div class="dropdown">
+                    <button class="dropbtn">GRADES</button>
+                    <div class="dropdown-content">
+                    <a class="diff" href="uploadgrades.html">Upload Grades</a>
+                    <a class="diff" href="editgrades.html">Edit Grades</a>
+                    </div>
+                </div>
+			</li>
+			
+			<li>
+				<a href="facultycourses.html">COURSES</a>
+			</li>
+
+			<li>
+				<a href="updateprofilefaculty.html">Update Profile</a>
+			</li>
+		</ul>
+		<hr size="1" width="100%" color="grey">   
+	</div>
+    
+    <div>
+        <p>Edit Grades</p> 
+    </div>
+	<div id="footer">
+		<div>
+			<p>&copy; SRI 2021</p>
+		</div>
+	</div>
+</body>
+</html>

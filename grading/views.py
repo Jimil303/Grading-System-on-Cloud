@@ -307,3 +307,27 @@ def shownames(request):
     results=course.objects.all()
     return results
 
+def facultyhomepage(request):
+
+    return render(request,'facultyhomepage.html')
+
+
+def grades(request):
+    
+    return render(request,'grades.html')
+
+def courses(request):
+    
+    return render(request,'facultycourses.html')
+
+def updateprofilefaculty(request):
+
+    return render(request,'updateprofilefaculty.html')
+
+def uploadgrades(request):
+    
+    return render(request,'uploadgrades.html')
+
+def editgrades(request):
+    
+    return render(request,'editgrades.html')
