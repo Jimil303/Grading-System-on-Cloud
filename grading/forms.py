@@ -24,15 +24,24 @@ class Myform3 (forms.ModelForm):
               labels = {'name' : "Course Name",'code':"Course Code"}
 
 class Myform4(forms.ModelForm):
+<<<<<<< Updated upstream
        year = forms.CharField(label='', 
               widget=forms.TextInput(attrs={'placeholder': 'Year'}))
        type = forms.CharField(label='', 
               widget=forms.TextInput(attrs={'placeholder': 'Semester Name'}))
        number = forms.CharField(label='', 
               widget=forms.TextInput(attrs={'placeholder': 'Semester Number'}))
+=======
+       
+       year = forms.CharField(label='', 
+              widget=forms.TextInput(attrs={'placeholder': 'Year'}))
+       type = forms.CharField(label='', 
+              widget=forms.TextInput(attrs={'placeholder': 'Enter Semester name'}))
+       number = forms.CharField(label='', 
+              widget=forms.TextInput(attrs={'placeholder': 'Enter Sem Number'}))
+>>>>>>> Stashed changes
        class Meta:
               model = semester
               fields = ['year','type','number']
               exclude= []
-              labels = {'year':"Year",'type':"Name",'number':"Semester Number"}
 
