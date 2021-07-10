@@ -306,6 +306,61 @@ input[id=id_code], select {
 	box-sizing: border-box;
 	font-size: medium;
 }
+input[id=semno], select {
+	width: 40%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
+}
+input[id=Year], select {
+	width: 40%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
+}
+input[id=id_year], select {
+	width: 60%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
+}
+input[id=id_type], select {
+	width: 60%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
+}
+input[id=id_number], select {
+	width: 60%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
+}
 .form{
 	text-align: center;
 	margin: auto;
@@ -314,15 +369,20 @@ input[id=id_code], select {
 	background-color: rgb(255, 255, 255);
 	padding-top : 10%;
 	}
-.sem-form{
-	text-align: center;
-	margin: auto;
-	width: 50%;
-	height: 300px;
-	background-color: rgb(255, 255, 255);
-	padding-top : 10%;
-}
 
+#add-sem{
+	text-align: center;
+}
+.sem-form{
+	width: 50%;
+	margin: 0 auto;
+	display: flex;
+	background-color: rgb(255, 255, 255);
+}
+.btn-btn-primary{
+	padding: 10px 20px 10px 20px;
+	margin-top: 2%;
+}
 	#name{
 		font-family: monospace;
 	}
@@ -397,12 +457,19 @@ input[id=faculty-submit], select {
 	font-size: 2em;
 }
 
-
-#add-sem{
+.select-course-form{
+	padding: 2%;
 	text-align: center;
+	margin: auto;
+	width: 60%;
+	height: 300px;
+	background-color: rgb(255, 255, 255);
+	}
+
+#select-courses{
+	padding: 2%;
+	font-size: large;
 }
-
-
 .add-courses h1{
 	text-align: center;
 }
