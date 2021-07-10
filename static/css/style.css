@@ -376,10 +376,7 @@ input[id=id_number], select {
 .sem-form{
 	width: 50%;
 	margin: 0 auto;
-<<<<<<< Updated upstream
 	display: flex;
-=======
->>>>>>> Stashed changes
 	background-color: rgb(255, 255, 255);
 }
 .btn-btn-primary{
