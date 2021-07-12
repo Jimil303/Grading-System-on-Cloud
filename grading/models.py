@@ -49,7 +49,7 @@ class messenger(models.Model):
     time = models.TimeField(db_column='time')
     status = models.IntegerField(db_column='status')
     remarks = models.CharField(db_column='remarks',max_length=150)
-    nameStudent = models.CharField(db_column= 'stuname',max_length=50)
+    nameStudent = models.CharField(db_column= 'name',max_length=50)
     #id = models.IntegerField(db_column='id',primary_key=True)
     class Meta:
         db_table = 'messages'

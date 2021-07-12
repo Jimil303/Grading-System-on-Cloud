@@ -24,11 +24,11 @@ class Myform3 (forms.ModelForm):
               labels = {'name' : "Course Name",'code':"Course Code"}
 
 class Myform4(forms.ModelForm):
-       year = forms.CharField(label='', 
+       year = forms.IntegerField(label='', 
               widget=forms.TextInput(attrs={'placeholder': 'Year'}))
        type = forms.CharField(label='', 
               widget=forms.TextInput(attrs={'placeholder': 'Semester Name'}))
-       number = forms.CharField(label='', 
+       number = forms.IntegerField(label='', 
               widget=forms.TextInput(attrs={'placeholder': 'Semester Number'}))
        class Meta:
               model = semester

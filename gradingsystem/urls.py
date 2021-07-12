@@ -52,7 +52,6 @@ urlpatterns = [
     url('addsemester',views.addsemester,name = 'Addsemester'),
     url('semcoursemapping',views.semcoursemapping,name = 'semcoursemapping'),
     url('facultyhomepage',views.facultyhomepage,name='facultyhomepage'),
-    url('grades',views.grades,name = 'grades'),
     url('courses',views.courses,name = 'courses'),
     url('uploadgrades',views.uploadgrades,name = 'uploadgrades'),
     url('editgrades',views.editgrades,name = 'editgrades'),

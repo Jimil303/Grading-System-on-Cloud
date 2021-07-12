@@ -377,6 +377,8 @@ input[id=id_number], select {
 	width: 50%;
 	margin: 0 auto;
 	display: flex;
+	align-items: center;
+	flex-direction: column;
 	background-color: rgb(255, 255, 255);
 }
 .btn-btn-primary{
@@ -454,7 +456,18 @@ input[id=faculty-submit], select {
 	width: 50%;
 	height: 150px;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-	font-size: 2em;
+	font-size: 1em;
+}
+
+input[id=upload], select {
+	width: 40%;
+	border-radius: 5%;
+	margin: 8px 0;
+	padding: 12px 20px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
 }
 
 .select-course-form{

@@ -403,11 +403,6 @@ def facultyhomepage(request):
 
     return render(request,'facultyhomepage.html')
 
-
-def grades(request):
-    
-    return render(request,'grades.html')
-
 def courses(request):
     
     return render(request,'facultycourses.html')
