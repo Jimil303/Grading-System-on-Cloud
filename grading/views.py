@@ -315,6 +315,8 @@ def addmanycourses(request):
                 created = course.objects.get_or_create(
                     name = row[0],
                     code = row[1],
+                    credits = row[2],
+                    kind = row[3],
                 )
                 try:
                     created.save()

@@ -58,8 +58,7 @@
 		</form>
 	</div>
 	<div id="second">
-		<h1>Add a list of Courses</h1>
-		<br><br><br><br>
+		<h1>Add multiple Courses</h1>
 		<form method = "POST" enctype = "multipart/form-data" action="addmanycourses">
 			{%csrf_token%}
 			<input name = "csvfile" type = "file">
@@ -68,10 +67,6 @@
 	</div>
 	<div id="body">
 	</div>
-	<div id="footer">
-		<div>
-			<p>&copy; SRI 2021</p>
-		</div>
-	</div>
+	
 </body>
 </html>

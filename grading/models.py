@@ -58,7 +58,8 @@ class course (models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(db_column='name',max_length=50)
     code = models.CharField(db_column='code',max_length=10)
-    
+    credits = models.FloatField(db_column='credits')
+    kind = models.CharField(db_column='kind',max_length=10)
     class Meta:
         db_table = 'course'
 
