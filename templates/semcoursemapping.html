@@ -44,7 +44,7 @@
 				<a href ="addcourses.html">add courses</a>
 			</li>
 			
-			<li class="selected">
+			<li>
 				<a href="addsemester.html">add semesters</a>
 			</li>
 			
@@ -56,13 +56,11 @@
 	</div>
     <div class="add-courses">
 		<h1>Add Courses to a Semester</h1>
-		<form	form method="POST" class="form" action = "semcoursemapping">
+		<form	form method="POST" class="select-course-form" action = "semcoursemapping" id="course-list">
 				{% csrf_token %}
-				Enter Semester Number: 
-                <input id="semno" type="number" name="semno">
-                Enter Year:
-                <input id = "Year" type = "number" name = "Year">
-                Select Courses:
+                <input id="semno" type="number" name="semno" placeholder="Enter Semester Number: ">
+                <input id = "Year" type = "number" name = "Year" placeholder="Enter Year:">
+                <h2 id="select-courses" > Select Courses : </h2> 
                 
                 <div id="course-list" >
                     <select id = "course1" name = "course1">
@@ -112,6 +110,11 @@
 	</div>
 	
 	<div id="body">
+	</div>
+    <div id="footer">
+		<div>
+			<p>&copy; SRI 2021</p>
+		</div>
 	</div>
 	
 </body>
