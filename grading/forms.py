@@ -19,9 +19,9 @@ class Myform2 (forms.ModelForm):
 class Myform3 (forms.ModelForm):
        class Meta:
               model = course
-              fields = ['id','name','code']
+              fields = ['id','name','code','credits','kind']
               exclude = ['id']
-              labels = {'name' : "Course Name",'code':"Course Code"}
+              labels = {'name' : "Course Name",'code':"Course Code",'credits':"Credits",'kind':"Core/Elective"}
 
 class Myform4(forms.ModelForm):
        class Meta:
