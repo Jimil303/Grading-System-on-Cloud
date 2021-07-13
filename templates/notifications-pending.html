@@ -31,7 +31,7 @@
 			</li>
 			<li class="selected">
 
-				<a href="Notification.html">notifications</a>
+				<a href="notifications-recieved.html">notifications</a>
 			</li>
 			<li>
 				<a href="StudentValidation.html">send validation request</a>
@@ -62,13 +62,21 @@
 
 	</div>
 	<div class="notification-mail">
-		<table style="width:100%">
+		<table style="width:100%" border="1">
+			<col style="width:16.66%">
+			<col style="width:16.66%">
+			<col style="width:16.66%">
+			<col style="width:10%">
+			<col style="width:19.16%">
+			<col style="width:20.86%">
+	<thead>
 			<tr>
 				<th>Sender</th>
 				<th>Student Name</th>
 				<th>Date</th>
 				<th>Time</th>
 				<th>File Link</th>
+				<th>Remark</th>
 				</tr>
 				<tr>
 				{% for x in det%}
@@ -76,7 +84,8 @@
 				<td>{{x.nameStudent}}</td>
 				<td>{{x.dated}}</td>
 				<td>{{x.time}}</td>
-				<td>{{x.fileurl}}</td>
+				<td><a href="{{x.fileurl}}" target="_blank"> Document</a></td>
+				<td> <button>Approve</button><button>Decline</button></td>
 				{%endfor%}
 			</tr>
 		</table>

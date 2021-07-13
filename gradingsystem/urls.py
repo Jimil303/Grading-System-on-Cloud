@@ -23,7 +23,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('homepage.html',views.index, name = 'home'),
-    path('', views.login, name='login'),
+    path('login.html', views.login, name='login'),
     url('loginstudent', views.studenthomepage, name='homepage'),
     url('loginpagestudent', views.loginstudent, name='loginstudent'),
     url('loginpagefaculty', views.loginfaculty, name='loginpagefaculty'),
@@ -33,8 +33,7 @@ urlpatterns = [
     url('RegisterUsersstudent',views.reguser3,name='RegisterUsersstudent'),
     url('reguser4',views.reguser4,name='RegisterUsers'),
     url('Search',views.search,name='Search'),
-    url('Notification',views.notification,name='Notification'),
-    url('notifications-recieved',views.notification,name = 'Notification'),
+    url('notifications-recieved',views.notification_recieved,name = 'Notification'),
     url('notifications-pending',views.notification_pending,name = 'Notification'),
     url('notifications-sent',views.notification_sent,name = 'Notification'),
     url('StudentValidation',views.StudentValidation,name='StudentValidation'),

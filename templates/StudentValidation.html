@@ -32,7 +32,7 @@
 			</li>
 			<li>
 
-				<a href="Notification.html">notifications</a>
+				<a href="notifications-recieved.html">notifications</a>
 			</li>
 			<li class="selected">
 				<a href="StudentValidation.html">send validation request</a>
@@ -52,14 +52,17 @@
 	<div class="student-validation-form">
 		<form method  = "POST" enctype = "multipart/form-data" action = "StudentValidation">
 		{%csrf_token%}
-		{{ form.as_p}}
-		Student Name: <input id="name" type="text" name="name" required="required"/><br>
-		Send to: <input id="college" autofocus type="search" name="search" required = "required" />
+		{{ form }}
+		<input id="name" type="text" name="name" placeholder="Student Name" required="required"/><br>
+		<input id="college" autofocus type="search" placeholder="Send to" name="search" required = "required" />
 		<br>
-		Upload file:
-		<input name = "pdffile" type = "file">
-		<input name = "upload"type = "submit" value = "Upload"><br>
+		<span class="text">upload file : </span>
+		<input id="stu-val-browse"  name = "pdffile" type = "file">
+		<input id="stu-val-upload" name = "upload" type = "submit" value = "Upload"><br>
 	</form>
+	<div>
+		
+	</div>
 </div>
 	<div id="footer">
 		<div>

@@ -79,9 +79,9 @@ body {
 	margin: 0;
 	padding: 36px 0 42px;
 	position:absolute;
-   bottom:0;
-   width:100%;
-   height:30px;
+    bottom:0;
+    width:100%;
+    height:30px;
 }
 #footer div {
 	margin: 0 auto;
@@ -229,4 +229,54 @@ input[id=courses], select {
 	font-size: medium;
 }
 
+input[id=semno], select {
+	width: 40%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
+}
 
+.add-courses h1{
+	text-align: center;
+}
+
+.select-course-form{
+	padding: 2%;
+	text-align: center;
+	margin: auto;
+	width: 100%;
+	height: 300px;
+	background-color: rgb(255, 255, 255);
+	}
+
+.facultycourse-list{
+	width: 100%;
+	display: block;
+}
+
+button.btn-btn-primary{
+	color: rgb(0, 0, 0);
+	padding: 1%;
+	margin: 5%;
+}
+
+#first {
+	text-align: center;
+		width: 50%;
+		float: left;
+		height: 300px;
+		background-color: rgb(255, 255, 255);
+		border-right: solid 0.5px black;
+	}
+#second {
+	text-align: center;
+		width: 48%;
+		float: left;
+		height: 300px;
+		background-color: rgb(255, 255, 255);
+	}
