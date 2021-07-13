@@ -361,6 +361,28 @@ input[id=id_number], select {
 	box-sizing: border-box;
 	font-size: medium;
 }
+input[id=id_credits], select {
+	width: 40%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
+}
+input[id=id_kind], select {
+	width: 40%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
+}
 .form{
 	text-align: center;
 	margin: auto;
@@ -459,6 +481,14 @@ input[id=faculty-submit], select {
 	font-size: 1em;
 }
 
+#stu-val-browse{
+	margin: 10px;
+}
+
+#stu-val-upload{
+	padding: 10px;
+}
+
 input[id=upload], select {
 	width: 40%;
 	border-radius: 5%;
@@ -485,4 +515,9 @@ input[id=upload], select {
 }
 .add-courses h1{
 	text-align: center;
+}
+
+.course-form{
+	display: block;
+	box-sizing: border-box;
 }

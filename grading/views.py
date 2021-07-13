@@ -122,18 +122,20 @@ def reguser4(request):
 def search(request):
     return render(request,'Search.html')
 
-def notification(request):
+def notification_recieved(request):
     user = request.session['college']
     
     details = messenger.objects.filter(reciever = user).order_by('dated').all()
     print(details)
-    return render(request,'Notification.html',{'det' : details})
+    return render(request,'notifications-recieved.html',{'det' : details})
+
 def notification_pending(request):
     user = request.session['college']
     
     details = messenger.objects.filter(reciever = user,status = 0).order_by('dated').all()
     print(details)
     return render(request,'notifications-pending.html',{'det' : details})
+
 def notification_sent(request):
     user = request.session['college']
     
