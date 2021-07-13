@@ -37,8 +37,7 @@
 		<div id="semester-dropdown">
 			<form method  = "POST" enctype = "multipart/form-data" action = "selectsem">
 				{%csrf_token%}
-			Enter Year:
-			<input id = "year" name = "year" type = "number" required = "required"><br>
+			<input id = "year" name = "year" type = "number" required = "required" placeholder="Enter Year"><br>
 			<input list="semester-list" id="sem" name = "sem" type="text" placeholder="Select Semester" required="required"/>
 			<br>
 			<button id="submit" value="Submit">Submit</button>

@@ -41,7 +41,7 @@ class Universities(models.Model):
         db_table = 'university'
 
 class messenger(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.AutoField(db_column= 'id',primary_key=True)
     sender = models.CharField(db_column = 'sender',max_length = 75)
     reciever = models.CharField(db_column='reciever',max_length=75)
     fileurl = models.CharField(db_column='fileurl', max_length=500)

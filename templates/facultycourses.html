@@ -20,14 +20,14 @@
                 <div class="dropdown">
                     <button class="dropbtn">GRADES</button>
                     <div class="dropdown-content">
-                    <a class="diff" href="selectcourse.html">Upload Grades</a>
+                    <a class="diff" href="uploadgrades.html">Upload Grades</a>
                     <a class="diff" href="editgrades.html">Edit Grades</a>
                     </div>
                 </div>
 			</li>
 
 			<li class="selected">
-				<a href="selectsem2.html">Courses</a>
+				<a href="facultycourses.html">Courses</a>
 			</li>
 
 			<li>
@@ -36,32 +36,32 @@
 		</ul>
 		<hr size="1" width="100%" color="grey">   
 	</div>
-	<div class="course-registration">
-		<p>Register for your Courses</p>
-		
-		<form	form method="POST" class="form" action = "facultycourses">
-			{%csrf_token%}
-		<div id="course-list" >
-			<select id = "course1" name = "course1">
-				<option disabled selected> Course I</option>
-				{% for results in shownames %}
-				<option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
-				{% endfor %}
-			</select>
-			
-			<select id="course2" name= "course2">
-				<option disabled selected> Course II</option>
-				{% for results in shownames %}
-				<option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
-				{% endfor %}
-			</select>
-
-		<div>
-			<button type="submit" class="btn-btn-primary">Submit</button>
-        </div>
-	</div>	
-	</form>
+	<div class="add-courses">
+		<h1>Add Courses</h1>
+		<form	form method="POST" class="select-course-form" action = "semcoursemapping" id="course-list">
+				{% csrf_token %}
+                <input id="semno" type="number" name="semno" placeholder="Enter Semester Number">
+                <h2 id="select-courses" > Select Courses : </h2> 
+                
+                <div id="facultycourse-list" >
+                    <select id = "course1" name = "course1">
+                        <option disabled selected> Course I (required)</option>
+                        {% for results in shownames %}
+                        <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <select id="course2" name= "course2">
+                        <option disabled selected> Course II (optional)</option>
+                        {% for results in shownames %}
+                        <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+				<button type="submit" class="btn-btn-primary">Submit</button>
+		</form>
 	</div>
+
 	<div id="footer">
 		<div>
 			<p>&copy; SRI 2021</p>
