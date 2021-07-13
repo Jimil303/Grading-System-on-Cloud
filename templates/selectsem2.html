@@ -1,4 +1,4 @@
-{%load static %}
+{% load static %}
 <!doctype html>
 <html>
 <head>
@@ -13,7 +13,7 @@
 	<div id="header">
 		
 		<ul id="navigation">
-			<li>
+			<li class="selected">
 				<a href="facultyhomepage.html">Home</a>
 			</li>
 			<li>
@@ -24,43 +24,46 @@
                     <a class="diff" href="editgrades.html">Edit Grades</a>
                     </div>
                 </div>
-			</li>
-
-			<li class="selected">
+			
+			<li>
 				<a href="selectsem2.html">Courses</a>
 			</li>
-
+			
 			<li>
 				<a href="updateprofilefaculty.html">Update Profile</a>
 			</li>
+			
 		</ul>
 		<hr size="1" width="100%" color="grey">   
 	</div>
 	<div class="course-registration">
-		<p>Register for your Courses</p>
-		
-		<form	form method="POST" class="form" action = "facultycourses">
-			{%csrf_token%}
-		<div id="course-list" >
-			<select id = "course1" name = "course1">
-				<option disabled selected> Course I</option>
-				{% for results in shownames %}
-				<option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
-				{% endfor %}
-			</select>
-			
-			<select id="course2" name= "course2">
-				<option disabled selected> Course II</option>
-				{% for results in shownames %}
-				<option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
-				{% endfor %}
-			</select>
+		<p>Register for your Courses CHECKER</p>
+		<div id="semester-dropdown">
+			<form method  = "POST" enctype = "multipart/form-data" action = "selectsem2">
+				{%csrf_token%}
+			Enter Year:
+			<input id = "year" name = "year" type = "number" required = "required"><br>
+			<input list="semester-list" id="sem" name = "sem" type="text" placeholder="Select Semester" required="required"/>
+			<br>
+			<button id="submit" value="Submit">Submit</button>
+		</form>
 
-		<div>
-			<button type="submit" class="btn-btn-primary">Submit</button>
-        </div>
-	</div>	
-	</form>
+			<datalist id="semester-list">
+				<option value="Semester I"></option>
+				<option value="Semester II"></option>
+				<option value="Semester III"></option>
+				<option value="Semester IV"></option>
+				<option value="Semester V"></option>
+				<option value="Semester VI"></option>
+				<option value="Semester VII"></option>
+				<option value="Semester VIII"></option>
+
+			</datalist>
+		</div>
+
+		
+			
+        
 	</div>
 	<div id="footer">
 		<div>

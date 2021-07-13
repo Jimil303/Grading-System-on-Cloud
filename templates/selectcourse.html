@@ -20,14 +20,14 @@
                 <div class="dropdown">
                     <button class="dropbtn">GRADES</button>
                     <div class="dropdown-content">
-                    <a class="diff" href="uploadgrades.html">Upload Grades</a>
-                    <a class="diff" href="Editgrades.hml">Edit Grades</a>
+                    <a class="diff" href="selectcourse.html">Upload Grades</a>
+                    <a class="diff" href="editgrades.html">Edit Grades</a>
                     </div>
                 </div>
-
 			</li>
+			
 			<li>
-				<a href="courses.html">courses</a>
+				<a href="selectsem2.html">Courses</a>
 			</li>
 
 			<li>
@@ -36,9 +36,26 @@
 		</ul>
 		<hr size="1" width="100%" color="grey">   
 	</div>
-
-<div id="footer">
-	<p id="footer-p">&copy; SRI 2021</p>
-</div>
+    
+    <form	form method="POST" class="form" action = "selectcourse">
+        {%csrf_token%}
+    <div id="course-list" >
+        <select id = "course1" name = "course1">
+            <option disabled selected> Course </option>
+            {% for results in shownames %}
+            <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
+            {% endfor %}
+        </select>
+        <div>
+            <button type="submit" class="btn-btn-primary">Submit</button>
+        </div>
+    </div>
+    
+    </form>
+	<div id="footer">
+		<div>
+			<p>&copy; SRI 2021</p>
+		</div>
+	</div>
 </body>
 </html>
