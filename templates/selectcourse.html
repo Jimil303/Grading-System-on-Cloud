@@ -1,24 +1,22 @@
-{% load static%}
+{% load static %}
 <!doctype html>
+
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Validation Request</title>
+	<title>Upload Grades</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/faculty-style.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
-	<script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
 </head>
 <body>
 	<div id="header">
 		
-			
 		<ul id="navigation">
 			<li>
 				<a href="facultyhomepage.html">Home</a>
 			</li>
-			
-			<li>
+			<li class="selected">
                 <div class="dropdown">
                     <button class="dropbtn">GRADES</button>
                     <div class="dropdown-content">
@@ -29,24 +27,35 @@
 			</li>
 			
 			<li>
-				<a href="selectsem2.html">courses</a>
+				<a href="selectsem2.html">Courses</a>
 			</li>
 
-			<li class="selected">
+			<li>
 				<a href="updateprofilefaculty.html">Update Profile</a>
 			</li>
-			
 		</ul>
 		<hr size="1" width="100%" color="grey">   
 	</div>
-<div>
-
-</div>
+    
+    <form	form method="POST" class="form" action = "selectcourse">
+        {%csrf_token%}
+    <div id="course-list" >
+        <select id = "course1" name = "course1">
+            <option disabled selected> Course </option>
+            {% for results in shownames %}
+            <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
+            {% endfor %}
+        </select>
+        <div>
+            <button type="submit" class="btn-btn-primary">Submit</button>
+        </div>
+    </div>
+    
+    </form>
 	<div id="footer">
 		<div>
 			<p>&copy; SRI 2021</p>
 		</div>
 	</div>
-
 </body>
 </html>

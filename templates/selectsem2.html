@@ -1,10 +1,10 @@
-{% load static%}
+{% load static %}
 <!doctype html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Validation Request</title>
+	<title>Course Registration</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/faculty-style.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
 	<script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
@@ -12,12 +12,10 @@
 <body>
 	<div id="header">
 		
-			
 		<ul id="navigation">
-			<li>
+			<li class="selected">
 				<a href="facultyhomepage.html">Home</a>
 			</li>
-			
 			<li>
                 <div class="dropdown">
                     <button class="dropbtn">GRADES</button>
@@ -26,27 +24,52 @@
                     <a class="diff" href="editgrades.html">Edit Grades</a>
                     </div>
                 </div>
+			
+			<li>
+				<a href="selectsem2.html">Courses</a>
 			</li>
 			
 			<li>
-				<a href="selectsem2.html">courses</a>
-			</li>
-
-			<li class="selected">
 				<a href="updateprofilefaculty.html">Update Profile</a>
 			</li>
 			
 		</ul>
 		<hr size="1" width="100%" color="grey">   
 	</div>
-<div>
+	<div class="course-registration">
+		<p>Register for your Courses CHECKER</p>
+		<div id="semester-dropdown">
+			<form method  = "POST" enctype = "multipart/form-data" action = "selectsem2">
+				{%csrf_token%}
+			Enter Year:
+			<input id = "year" name = "year" type = "number" required = "required"><br>
+			<input list="semester-list" id="sem" name = "sem" type="text" placeholder="Select Semester" required="required"/>
+			<br>
+			<button id="submit" value="Submit">Submit</button>
+		</form>
 
-</div>
+			<datalist id="semester-list">
+				<option value="Semester I"></option>
+				<option value="Semester II"></option>
+				<option value="Semester III"></option>
+				<option value="Semester IV"></option>
+				<option value="Semester V"></option>
+				<option value="Semester VI"></option>
+				<option value="Semester VII"></option>
+				<option value="Semester VIII"></option>
+
+			</datalist>
+		</div>
+
+		
+			
+        
+	</div>
 	<div id="footer">
 		<div>
 			<p>&copy; SRI 2021</p>
 		</div>
 	</div>
-
 </body>
+
 </html>
