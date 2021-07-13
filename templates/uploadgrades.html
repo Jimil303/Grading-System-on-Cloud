@@ -20,14 +20,14 @@
                 <div class="dropdown">
                     <button class="dropbtn">GRADES</button>
                     <div class="dropdown-content">
-                    <a class="diff" href="uploadgrades.html">Upload Grades</a>
+                    <a class="diff" href="selectcourse.html">Upload Grades</a>
                     <a class="diff" href="editgrades.html">Edit Grades</a>
                     </div>
                 </div>
 			</li>
 			
 			<li>
-				<a href="facultycourses.html">COURSES</a>
+				<a href="selectsem2.html">Courses</a>
 			</li>
 
 			<li>
@@ -36,23 +36,10 @@
 		</ul>
 		<hr size="1" width="100%" color="grey">   
 	</div>
-    <div id="first">
-		<h1>Upload Grade of a Particular Student</h1>
-		<form form method="POST">
-				{% csrf_token %}
-				{{ form.as_p}}
-				<button  id="faculty-submit" type="submit">Submit</button>
-		</form>
-	</div>
-	<div id="second">
-		<h1>Upload grades of a course</h1>
-		<br><br><br><br>
-		<form method = "POST" enctype = "multipart/form-data" action="reguser2">
-			{%csrf_token%}
-			<input name = "csvfile" type = "file">
-			<input type = "submit" value = "Upload">
-		</form>
-	</div>
+    
+    <div>
+        
+    </div>
 	<div id="footer">
 		<div>
 			<p>&copy; SRI 2021</p>
