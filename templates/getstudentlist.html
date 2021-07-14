@@ -1,0 +1,13 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<body>
+    <form action = "getstudentlist" target = "_blank">
+        {%for x in res%}
+        {{res.ID}} -- {{res.name}} -- {{res.grade}} 
+        {%endfor%}
+    </form>
+    
+</body>
+</html>
