@@ -304,3 +304,26 @@ input[id=year], select {
 		background-color: rgb(255, 255, 255);
 	}
 
+
+input[id=year_faculty], select {
+	width: 40%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
+}
+input[id=select_sem], select {
+	width: 40%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
+}

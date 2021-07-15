@@ -417,7 +417,6 @@ input[id=id_kind], select {
 
 
 .Search{
-padding-top: 1%;
 	text-align: center;
 	margin: auto;
 	width: 100%;
@@ -425,6 +424,10 @@ padding-top: 1%;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	font-size: 2em;
 	
+}
+
+.search-table{
+	margin: auto;
 }
 
 input[id=Search], select {

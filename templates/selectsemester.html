@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Course Registration</title>
+	<title>Student Course Registration</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/student-style.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
 	<script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
@@ -37,8 +37,8 @@
 		<div id="semester-dropdown">
 			<form method  = "POST" enctype = "multipart/form-data" action = "selectsem">
 				{%csrf_token%}
-			<input id = "year" name = "year" type = "number" required = "required" placeholder="Enter Year"><br>
-			<input list="semester-list" id="sem" name = "sem" type="text" placeholder="Select Semester" required="required"/>
+			<input id = "stu_year" name = "year" type = "number" required = "required" placeholder="Enter Year"><br>
+			<input list="semester-list" id="stu_sem" name = "sem" type="text" placeholder="Select Semester" required="required"/>
 			<br>
 			<button id="submit" value="Submit">Submit</button>
 		</form>
