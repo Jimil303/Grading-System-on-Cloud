@@ -85,13 +85,23 @@
 				<td>{{x.dated}}</td>
 				<td>{{x.time}}</td>
 				<td><a href="{{x.fileurl}}" target="_blank"> Document</a></td>
-				<td> <button>Approve</button><button>Decline</button></td>
+				{% if x.status  == 0 %}
+				<td class="buttons"> 
+					<form method="POST" enctype = "multipart/form-data">
+						{%csrf_token%}
+						<button name = "app" value= {{x.id}} type="submit" onclick="this.form.action='views.approve_status(request,{{x.id}})';">Approve</button>
+						<button name = "dec" value= {{x.id}} type="submit" onclick="this.form.action='views.decline_status(request,{{x.id}})';">Decline</button>
+					</form>
+				</td>
+				{%elif x.status == 1 %}
+				<td>Approved</td>>
+				{%elif x.status == 2%}
+				<td>Declined</td>
+				{%endif%}
 				{%endfor%}
 			</tr>
 		</table>
 
 	</div>
-
-
 </body>
 </html>

@@ -59,6 +59,6 @@ urlpatterns = [
     url('uploadgrades',views.uploadgrades,name = 'uploadgrades'),
     url('updateprofilefaculty',views.updateprofilefaculty,name = 'updateprofilefaculty'),
     url('getstudentlist.html',views.getstudentlist,name = 'getstudentlist'),
-    #url('transcript',views.result,name = 'transcript')
+    url('approve',views.approve_status,name = 'approve'),
     
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -24,14 +24,9 @@ class Myform3 (forms.ModelForm):
               labels = {'name' : "Course Name",'code':"Course Code",'credits':"Credits",'kind':"Core/Elective"}
 
 class Myform4(forms.ModelForm):
-       year = forms.IntegerField(label='', 
-              widget=forms.TextInput(attrs={'placeholder': 'Year'}))
-       type = forms.CharField(label='', 
-              widget=forms.TextInput(attrs={'placeholder': 'Semester Name'}))
-       number = forms.IntegerField(label='', 
-              widget=forms.TextInput(attrs={'placeholder': 'Semester Number'}))
        class Meta:
               model = semester
               fields = ['year','type','number']
-              exclude= []
+              exclude= ['id']
+              labels = {'year' : "Year",'type' : "Name", 'number':"Semester Number"}
 
