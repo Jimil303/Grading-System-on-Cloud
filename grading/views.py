@@ -1,5 +1,6 @@
 from django.contrib.auth.models import UserManager
 from django.core.checks import messages
+from django.core.exceptions import RequestAborted
 from django.core.files.base import File
 from django.db import reset_queries
 from django.db.models.fields import NullBooleanField
@@ -132,13 +133,12 @@ def search(request):
     return render(request,'Search.html')
 
 def approve_status(request):
-    if request.method == 'POST':
-        details = messenger.objects.get(id=request.POST['app']).update(status=1,remarks="Approved")
-#        details.status = 1
- #       details.remarks = "Approved"
-  #      details.save()
-        print(details[0].remarks)
-        return render(request,'notifications-recieved.html',{'det' : details})
+    if request.method== 'POST':
+        details = messenger.objects.get(id=request.POST['app'])
+        details.status = 1
+        details.remarks = "Approved"
+        details.save()       
+        return render(request,'notifications-recieved.html')
 
 def decline_status(request):
     if request.method == 'POST':
@@ -146,14 +146,14 @@ def decline_status(request):
         details.status = 2
         details.remarks = "Declined"
         details.save()
-        return render(request,'notifications-recieved.html',{'det' : details})
+        return render(request,'notifications-recieved.html',)
 
 
 def notification_recieved(request):
     user = request.session['college']
     
     details = messenger.objects.filter(reciever = user).order_by('dated').all()
-    print(details)
+    
     return render(request,'notifications-recieved.html',{'det' : details})
 
 def notification_pending(request):
