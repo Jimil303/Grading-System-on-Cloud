@@ -35,15 +35,22 @@
 			</li>
 		</ul>
 		<hr size="1" width="100%" color="grey">   
-	</div>
-    
-    <div>
-        
-    </div>
-	<div id="footer">
-		<div>
-			<p>&copy; SRI 2021</p>
+		<div id="first">
+			<h1>Edit/ADD grade of student student</h1>
+			<form	form method="POST" class="course-form">
+					{% csrf_token %}
+					Enter Student ID : <input name = "st_id" id = "st_id" type = "number"><br>
+					Enter Grade : <input name = "grde" id="grde" typr = "text">
+					<button type="submit" class="btn-btn-primary">Submit</button>
+			</form>
 		</div>
-	</div>
+		<div id="second">
+			<h1>Upload Grades</h1>
+			<form method = "POST" enctype = "multipart/form-data" action="uploadallgrades">
+				{%csrf_token%}
+				<input name = "csvfile" type = "file">
+				<input type = "submit" value = "Upload">
+			</form>
+		</div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 from django.contrib.auth.models import UserManager
 from django.core.checks import messages
 from django.core.files.base import File
+from django.db import reset_queries
 from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
@@ -523,13 +524,74 @@ def get_courses(request):
 def selectcourse(request):
     x = get_courses(request)
     if request.method == 'POST':
-        request.session['course_selec'] = request.POST['course1']
-        return render (request,'uploadgrades.html')
+        x = course.objects.get( code= request.POST['course1'])
+        request.session['course_select'] = x.id
+        if request.POST['sem'] == "Semester I":
+            no = 1
+        elif request.POST['sem'] == "Semester II":
+            no = 2           
+        elif request.POST['sem'] == "Semester III":
+            no = 3
+        elif request.POST['sem'] == "Semester IV":
+            no = 4
+        elif request.POST['sem'] == "Semester V":
+            no = 5
+        elif request.POST['sem'] == "Semester VI":
+            no = 6
+        elif request.POST['sem'] == "Semester VII":
+            no = 7
+        elif request.POST['sem'] == "Semester VIII":
+            no = 8
+        t = semester.objects.get(year = request.POST['year'], number = no)
+        print(t.type)
+        request.session['sem'] = t.id
+        return render(request,'uploadgrades.html')
     return render(request,'selectcourse.html',{'shownames' : x})
+
+def getstudentlist(request):
+    print(request.session['course_select'])
+    print(request.session['sem'])
+    class obj:
+        def __init__(self, ID, name, grade):
+            self.ID = ID
+            self.name = name
+            self.grade = grade
+    x = semester_course_mapping.objects.get(course_id = request.session['course_select'], semester_id = request.session['sem'])
+    y = student_course_mapping.objects.filter(semester_course_mapping_id = x.id)
+    lis = []
+    for f in y:
+        u = StudentCredentials.objects.get(id = f.student_id)
+        lis.append(obj(f.student_id,u.name,f.grade))
+    return render(request,'getstudentlist.html',{'res':lis})
+
 def uploadgrades(request):
-    
+    if request.method == 'POST':
+        st = request.POST['st_id']
+        x = semester_course_mapping.objects.get(course_id = request.session['course_select'], semester_id = request.session['sem'])
+        grde = request.POST['grde']
+        student_course_mapping.objects.get(
+            student_id = st,
+            semester_course_mapping_id = x.id,
+        ).update(grade = grde)
     return render(request,'uploadgrades.html')
 
-def editgrades(request):
-    
-    return render(request,'editgrades.html')
+
+def uploadallgrades(request):
+    if request.method == 'POST':
+        fileobj = request.FILES['csvfile']
+        fs = FileSystemStorage()
+        filePathName = fs.save(fileobj.name, fileobj)
+        uploaded_to = fs.path(filePathName)
+        print(uploaded_to)
+        x = semester_course_mapping.objects.get(course_id = request.session['course_select'], semester_id = request.session['sem'])
+        with open(uploaded_to) as f:
+            reader = csv.reader(f)
+            for row in reader:
+                try:
+                    student_course_mapping.objects.get(
+                    student_id = row[0],
+                    semester_course_mapping_id = x.id
+                    ).update(grade = row[1])
+                except:
+                    continue
+    return render(request,'uploadgrades.html')

@@ -39,7 +39,11 @@
     
     <form	form method="POST" class="form" action = "selectcourse">
         {%csrf_token%}
-    <div id="course-list" >
+    <div id="course-list">
+		Select Semester: <input list="semester-list" id="sem" name = "sem" type="text" placeholder="Select Semester" required="required"/>
+		<br>
+		Enter Year : <input id = "year" name = "year" type = "number" required = "required">
+		Select Course:
         <select id = "course1" name = "course1">
             <option disabled selected> Course </option>
             {% for results in shownames %}
@@ -49,13 +53,22 @@
         <div>
             <button type="submit" class="btn-btn-primary">Submit</button>
         </div>
+		<div>
+			<button onclick= "window.open('getstudentlist.html');"></button>
+			<span class = "icon">Get Student List</span>
+		</div>
     </div>
     
-    </form>
-	<div id="footer">
-		<div>
-			<p>&copy; SRI 2021</p>
-		</div>
-	</div>
+    <datalist id="semester-list">
+		<option value="Semester I"></option>
+		<option value="Semester II"></option>
+		<option value="Semester III"></option>
+		<option value="Semester IV"></option>
+		<option value="Semester V"></option>
+		<option value="Semester VI"></option>
+		<option value="Semester VII"></option>
+		<option value="Semester VIII"></option>
+
+	</datalist>
 </body>
 </html>
