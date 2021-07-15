@@ -17,18 +17,11 @@ class Myform2 (forms.ModelForm):
               labels = {'stu_id':"Student ID",'name':"Full Name",'phone':"Phone no",'email':"e-mail",'username': "Username", 'password': "Password"}
 
 class Myform3 (forms.ModelForm):
-       name = forms.CharField(label='', 
-              widget=forms.TextInput(attrs={'placeholder': 'Course Name'}))
-       code = forms.CharField(label='', 
-              widget=forms.TextInput(attrs={'placeholder': 'Course Code'}))
-       credits = forms.IntegerField(label='', 
-              widget=forms.TextInput(attrs={'placeholder': 'Credits'}))
-       kind = forms.CharField(label='', 
-              widget=forms.TextInput(attrs={'placeholder': 'Core/Elective'}))
        class Meta:
               model = course
               fields = ['id','name','code','credits','kind']
               exclude = ['id']
+              labels = {'name' : "Course Name",'code':"Course Code",'credits':"Credits",'kind':"Core/Elective"}
 
 class Myform4(forms.ModelForm):
        year = forms.IntegerField(label='', 

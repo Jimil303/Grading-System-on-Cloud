@@ -1,45 +1,14 @@
 {% load static %}
 <!doctype html>
-
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>search</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/result.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
-</head>
 <body>
-	<div id="header">
-		
-		<ul id="navigation">
-			<li>
-				<a href="studenthomepage.html">Home</a>
-			</li>
-			<li class="selected">
-				<a href="result.html">Result</a>
-			</li>
-			<li>
-				<a href="selectsemester.html">Course Registration</a>
-			</li>
-			<li>
-
-				<a href="Notification.html">notifications</a>
-			</li>
-			<li>
-				<a href="updateprofilestudent.html">Update Profile</a>
-			</li>
-		</ul>
-		<hr size="1" width="100%" color="grey">   
-	</div>
+    <form action = "result">
+		{{semester}}<br>
+        {%for x in res%}
+        {{x.name}} -- {{x.grade}}<br>
+        {%endfor%}
+    </form>
     
-    <div class="head">
-        Transcript
-    </div>
-	<div id="footer">
-		<div>
-			<p>&copy; SRI 2021</p>
-		</div>
-	</div>
 </body>
 </html>

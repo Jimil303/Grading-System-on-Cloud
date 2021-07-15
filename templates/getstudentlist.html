@@ -5,7 +5,7 @@
 <body>
     <form action = "getstudentlist" target = "_blank">
         {%for x in res%}
-        {{res.ID}} -- {{res.name}} -- {{res.grade}} 
+        {{x.ID}} -- {{x.name}} -- {{x.grade}}<br>
         {%endfor%}
     </form>
     
