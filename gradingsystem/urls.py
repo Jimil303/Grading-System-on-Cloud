@@ -23,7 +23,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('homepage.html',views.index, name = 'home'),
-    path('login.html', views.login, name='login'),
+    path('', views.login, name='login'),
     url('loginstudent', views.studenthomepage, name='homepage'),
     url('loginpagestudent', views.loginstudent, name='loginstudent'),
     url('loginpagefaculty', views.loginfaculty, name='loginpagefaculty'),
@@ -48,7 +48,7 @@ urlpatterns = [
     url('coursereg',views.coursereg,name='courseregistration'),
     url('shownames',views.shownames,name='shownames'),
     url('updateprofilestudent',views.updateprofilestudent,name='updateprofile'),
-    url('transcript',views.transcript,name='transcript'),
+    #url('transcript',views.transcript,name='transcript'),
     url('addcourses',views.addonecourse,name = 'Addonecourse'),
     url('addmanycourses',views.addmanycourses,name = 'Addmanycourses'),
     url('addsemester',views.addsemester,name = 'Addsemester'),
@@ -57,7 +57,8 @@ urlpatterns = [
     url('facultycourses',views.facultycourses,name = 'facultycourses'),
     url('selectcourse',views.selectcourse,name = 'selectcourse'),
     url('uploadgrades',views.uploadgrades,name = 'uploadgrades'),
-    
     url('updateprofilefaculty',views.updateprofilefaculty,name = 'updateprofilefaculty'),
     url('getstudentlist.html',views.getstudentlist,name = 'getstudentlist'),
+    #url('transcript',views.result,name = 'transcript')
+    
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

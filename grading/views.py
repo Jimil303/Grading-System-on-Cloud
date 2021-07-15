@@ -312,13 +312,7 @@ def updateprofilestudent(request):
     return render(request,'updateprofilestudent.html')
 
 
-def result(request):
 
-    return render(request,'result.html')
-
-def transcript(request):
-    
-    return render(request,'transcript.html')
 
 def addmanycourses(request):
     if request.method == 'POST':
@@ -442,11 +436,6 @@ def facultyhomepage(request):
 
     return render(request,'facultyhomepage.html')
 
-
-def grades(request):
-    
-    return render(request,'grades.html')
-
 def displaycourse(sem, yr):
     x = semester.objects.get(year = yr, number = sem)
     y = semester_course_mapping.objects.filter(semester_id = x.id).all()
@@ -560,8 +549,11 @@ def selectcourse(request):
             no = 7
         elif request.POST['sem'] == "Semester VIII":
             no = 8
+        
+        request.session['year'] = request.POST['year']
+        #print(request.session['year'])
         t = semester.objects.get(year = request.POST['year'], number = no)
-        print(t.type)
+        #print(t.type)
         request.session['sem'] = t.id
         return render(request,'uploadgrades.html')
     return render(request,'selectcourse.html',{'shownames' : x})
@@ -578,8 +570,9 @@ def getstudentlist(request):
     y = student_course_mapping.objects.filter(semester_course_mapping_id = x.id)
     lis = []
     for f in y:
-        u = StudentCredentials.objects.get(id = f.student_id)
-        lis.append(obj(f.student_id,u.name,f.grade))
+        u = StudentCredentials.objects.get(stu_id = f.student_id)
+        p = obj(u.stu_id,u.name,f.grade)
+        lis.append(p)
     return render(request,'getstudentlist.html',{'res':lis})
 
 def uploadgrades(request):
@@ -587,10 +580,12 @@ def uploadgrades(request):
         st = request.POST['st_id']
         x = semester_course_mapping.objects.get(course_id = request.session['course_select'], semester_id = request.session['sem'])
         grde = request.POST['grde']
-        student_course_mapping.objects.get(
+        j = student_course_mapping.objects.get(
             student_id = st,
             semester_course_mapping_id = x.id,
-        ).update(grade = grde)
+        )
+        j.grade = grde
+        j.save()
     return render(request,'uploadgrades.html')
 
 
@@ -606,10 +601,49 @@ def uploadallgrades(request):
             reader = csv.reader(f)
             for row in reader:
                 try:
-                    student_course_mapping.objects.get(
+                    j = student_course_mapping.objects.get(
                     student_id = row[0],
                     semester_course_mapping_id = x.id
-                    ).update(grade = row[1])
+                    )
+                    j.grade = row[1]
+                    j.save()
                 except:
                     continue
     return render(request,'uploadgrades.html')
+
+def result(request):
+    class obj:
+        def __init__(self,name, grade):
+            self.name = name
+            self.grade = grade
+
+    if request.method == 'POST':
+        if request.POST['sem'] == "Semester I":
+            no = 1
+        elif request.POST['sem'] == "Semester II":
+            no = 2           
+        elif request.POST['sem'] == "Semester III":
+            no = 3
+        elif request.POST['sem'] == "Semester IV":
+            no = 4
+        elif request.POST['sem'] == "Semester V":
+            no = 5
+        elif request.POST['sem'] == "Semester VI":
+            no = 6
+        elif request.POST['sem'] == "Semester VII":
+            no = 7
+        elif request.POST['sem'] == "Semester VIII":
+            no = 8
+        request.session['year'] = request.POST['year_st']
+        t = semester.objects.get(year = request.POST['year_st'], number = no)
+
+        p = semester_course_mapping.objects.filter(semester_id = t.id)
+        lis =[]
+        
+        for i in p:
+            o = student_course_mapping.objects.get(student_id = request.session['student_id'], semester_course_mapping_id = i.id)
+            r = course.objects.get(id = i.course_id)
+            q = obj(r.name, o.grade)
+            lis.append(q)
+        return render(request,'transcript.html',{'res':lis, 'semester':request.POST['sem']})
+    return render(request,'result.html')

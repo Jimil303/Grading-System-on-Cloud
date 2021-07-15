@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>search</title>
+	<title>result</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/result.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
 </head>
@@ -33,40 +33,26 @@
 		<hr size="1" width="100%" color="grey">   
 	</div>
 
+	<div id="semester-dropdown">
+		<form method  = "POST" enctype = "multipart/form-data" action = "result">
+			{%csrf_token%}
+		<input id = "year_st" name = "year_st" type = "number" required = "required" placeholder=" Enter Year"><br>
+		<input list="semester-list" id="sem" name = "sem" type="text" placeholder="Select Semester" required="required"/>
+		<br>
+		<button id="submit" value="Submit">Submit</button>
+	</form>
 
-	<div class="result-div">
-		<div class="grid-container">
-			<div class="grid-item">Sr.No</div>
-			<div class="grid-item">Semester</div>
-			<div class="grid-item"></div>  
-			<div class="grid-item">1</div>
-			<div class="grid-item">Semester 1</div>
-			<div class="grid-item"> <a class="result-btn" href="transcript.html" > View</a></div>  
-			<div class="grid-item">2</div>
-			<div class="grid-item">Semester 2</div>
-			<div class="grid-item"> <a class="result-btn" href="transcript.html" > View</a></div>  
-			<div class="grid-item">3</div>
-			<div class="grid-item">Semester 3</div>
-			<div class="grid-item"> <a class="result-btn" href="transcript.html" > View</a></div>  
-			<div class="grid-item">4</div>
-			<div class="grid-item">Semester 4</div>
-			<div class="grid-item"> <a class="result-btn" href="transcript.html" > View</a></div>  
-			<div class="grid-item">5</div>
-			<div class="grid-item">Semester 5</div>
-			<div class="grid-item"> <a class="result-btn" href="transcript.html" > View</a></div>  
-			<div class="grid-item">6</div>
-			<div class="grid-item">Semester 6</div>
-			<div class="grid-item"> <a class="result-btn" href="transcript.html" > View</a></div>  
-			<div class="grid-item">7</div>
-			<div class="grid-item">Semester 7</div>
-			<div class="grid-item"> <a class="result-btn" href="transcript.html" > View</a></div>  
-			<div class="grid-item">8</div>
-			<div class="grid-item">Semester 8</div>
-			<div class="grid-item"> <a class="result-btn" href="transcript.html" > View</a></div> 
-</div>
-</div>
-<div id="footer">
-	<p id="footer-p">&copy; SRI 2021</p>
-</div>
+		<datalist id="semester-list">
+			<option value="Semester I"></option>
+			<option value="Semester II"></option>
+			<option value="Semester III"></option>
+			<option value="Semester IV"></option>
+			<option value="Semester V"></option>
+			<option value="Semester VI"></option>
+			<option value="Semester VII"></option>
+			<option value="Semester VIII"></option>
+		</datalist>
+	</div>
+
 </body>
 </html>
