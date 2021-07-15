@@ -33,13 +33,13 @@
 		<hr size="1" width="100%" color="grey">   
 	</div>
 
-	<div id="semester-dropdown">
-		<form method  = "POST" enctype = "multipart/form-data" action = "result">
+	<div class="result-div">
+		<form method  = "POST" enctype = "multipart/form-data" action = "result" class="result_form">
 			{%csrf_token%}
 		<input id = "year_st" name = "year_st" type = "number" required = "required" placeholder=" Enter Year"><br>
 		<input list="semester-list" id="sem" name = "sem" type="text" placeholder="Select Semester" required="required"/>
 		<br>
-		<button id="submit" value="Submit">Submit</button>
+		<button class="result-btn" id="submit" value="Submit">Submit</button>
 	</form>
 
 		<datalist id="semester-list">

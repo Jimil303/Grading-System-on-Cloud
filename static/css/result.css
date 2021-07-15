@@ -144,37 +144,21 @@ body {
 .dropdown:hover .dropbtn {
 	color: #0ba39c;}
 
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-}
-
-.grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 20px;
-    text-align: center;
-    justify-content: center;
-}
-
 .result-div{
-	height: 100%;
-	padding-bottom: 0;
+
     width: 80%;
-    margin: auto;
-	overflow: scroll;
-	margin-bottom: 30px;
+    margin: 5% auto;
+	padding: auto;
+	align-items: center;
+	text-align: center;
 }
 
 .result-btn{
-    height: 100%;
-    width: 30%;
-    appearance: button;
-    text-decoration: none;
+    
+    width: 10%;
     border: 1px solid black;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px 10px 10px 10px;
     background-color: rgb(109, 105, 105);
     color: white;
 }
@@ -186,4 +170,28 @@ body {
     text-align: center;
     height: 50px;
     font-size: xx-large;
+}
+
+input[id=year_st], select {
+	width: 40%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
+}
+
+input[id=sem], select {
+	width: 40%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
 }
