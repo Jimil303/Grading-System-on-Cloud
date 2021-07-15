@@ -16,7 +16,7 @@
 			<li>
 				<a href="facultyhomepage.html">Home</a>
 			</li>
-			<li class="selected">
+			<li class="select">
                 <div class="dropdown">
                     <button class="dropbtn">GRADES</button>
                     <div class="dropdown-content">
@@ -40,23 +40,20 @@
     <form	form method="POST" class="form" action = "selectcourse">
         {%csrf_token%}
     <div id="course-list">
-		Select Semester: <input list="semester-list" id="sem" name = "sem" type="text" placeholder="Select Semester" required="required"/>
+		<input list="semester-list" id="sem" name = "sem" type="text" placeholder="Select Semester" required="required"/>
 		<br>
-		Enter Year : <input id = "year" name = "year" type = "number" required = "required">
-		Select Course:
+		<input id = "year" name = "year" type = "number" required = "required" placeholder="Enter Year">
+		<br>
         <select id = "course1" name = "course1">
-            <option disabled selected> Course </option>
+            <option disabled selected> Select Course </option>
             {% for results in shownames %}
             <option value = {{results.code}}>{{results.name}} - {{results.code}}</option>
             {% endfor %}
         </select>
         <div>
+			<button class="btn-btn-primary" onclick= "window.open('getstudentlist.html');">Get Student List</button>
             <button type="submit" class="btn-btn-primary">Submit</button>
         </div>
-		<div>
-			<button onclick= "window.open('getstudentlist.html');"></button>
-			<span class = "icon">Get Student List</span>
-		</div>
     </div>
     
     <datalist id="semester-list">

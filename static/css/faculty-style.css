@@ -262,7 +262,30 @@ input[id=semno], select {
 button.btn-btn-primary{
 	color: rgb(0, 0, 0);
 	padding: 1%;
-	margin: 5%;
+	margin: 1%;
+}
+
+input[id=sem], select {
+	width: 40%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
+}
+input[id=year], select {
+	width: 40%;
+	border-radius: 5%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size: medium;
 }
 
 #first {
@@ -280,3 +303,4 @@ button.btn-btn-primary{
 		height: 300px;
 		background-color: rgb(255, 255, 255);
 	}
+
