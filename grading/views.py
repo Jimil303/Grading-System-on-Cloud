@@ -131,6 +131,24 @@ def reguser4(request):
 def search(request):
     return render(request,'Search.html')
 
+def approve_status(request):
+    if request.method == 'POST':
+        details = messenger.objects.get(id=request.POST['app']).update(status=1,remarks="Approved")
+#        details.status = 1
+ #       details.remarks = "Approved"
+  #      details.save()
+        print(details[0].remarks)
+        return render(request,'notifications-recieved.html',{'det' : details})
+
+def decline_status(request):
+    if request.method == 'POST':
+        details = messenger.objects.get(id=request.POST['dec'])
+        details.status = 2
+        details.remarks = "Declined"
+        details.save()
+        return render(request,'notifications-recieved.html',{'det' : details})
+
+
 def notification_recieved(request):
     user = request.session['college']
     

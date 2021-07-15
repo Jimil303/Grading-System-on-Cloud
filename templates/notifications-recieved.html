@@ -85,8 +85,12 @@
 				<td>{{x.dated}}</td>
 				<td>{{x.time}}</td>
 				<td><a href="{{x.fileurl}}" target="_blank"> Document</a></td>
-				<td class="buttons"> <button type="submit">Approve</button>
-					<button type="submit">Decline</button>
+				<td class="buttons"> 
+					<form method="POST">
+						{%csrf_token%}
+						<button id="app" value="{{x.id}}" type="submit" onclick="approve_status()">Approve</button>
+						<button  id="dec" value="{{x.id}}" type="submit" onclick="decline_status()">Decline</button>
+					</form>
 				</td>
 				{%endfor%}
 			</tr>
