@@ -333,6 +333,7 @@ def addmanycourses(request):
                 except:
                     continue
     return render(request,'addcourses.html')
+
 def addmanycourses(request):
     if request.method == 'POST':
         fileobj = request.FILES['csvfile']
@@ -433,7 +434,6 @@ def shownames(request):
     return results
 
 def facultyhomepage(request):
-
     return render(request,'facultyhomepage.html')
 
 def displaycourse(sem, yr):

@@ -54,11 +54,11 @@
 		<input id="Search" type="text" name="Search" placeholder="Search" required="required"/>
 	</div>
 		<div class="search-table">
-			<table style="width:80%" border="1">
+			<table style="width:100%" border="1">
 				<col style="width:10%">
 				<col style="width:35%">
-				<col style="width:25%">
 				<col style="width:30%">
+				<col style="width:35%">
 			<thead>
 				<tr>
 					<th>Student ID</th>
@@ -71,8 +71,8 @@
 					<td>{{x.sender}}</td>
 					<td>{{x.nameStudent}}</td>
 					<td>{{x.dated}}</td>
-					<td class="buttons"> <button type="submit">Approve</button>
-						<button type="submit">Decline</button>
+					<td class="buttons"> <button type="submit">View</button>
+						<button type="submit">Edit</button>
 					</td>
 					{%endfor%}
 					</tr>

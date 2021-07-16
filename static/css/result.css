@@ -195,3 +195,13 @@ input[id=sem], select {
 	box-sizing: border-box;
 	font-size: medium;
 }
+
+.transcript{
+	width: 90%;
+	margin: auto;
+}
+
+.transcript-table{
+	width: 90%;
+	margin: auto;
+}

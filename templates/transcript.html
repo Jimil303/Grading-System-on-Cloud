@@ -1,14 +1,61 @@
 {% load static %}
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/result.css' %">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 <body>
-    <form action = "result">
-		{{semester}}<br>
-        {%for x in res%}
-        {{x.name}} -- {{x.grade}}<br>
-        {%endfor%}
-    </form>
-    
+
+    <div id="header">
+		
+		<ul id="navigation">
+			<li>
+				<a href="studenthomepage.html">Home</a>
+			</li>
+			<li class="selected">
+				<a href="result.html">Result</a>
+			</li>
+			<li>
+				<a href="selectsemester.html">Course Registration</a>
+			</li>
+			<li>
+
+				<a href="Notification.html">notifications</a>
+			</li>
+			<li>
+				<a href="updateprofilestudent.html">Update Profile</a>
+			</li>
+		</ul>
+		<hr size="1" width="100%" color="grey">   
+	</div>
+
+    <div class="transcript">
+        <form action = "result" class="transcript-table">
+            <p>{{semester}}</p>
+			<table style="width:100%" border="1">
+				<col style="width:70%">
+				<col style="width:30%">
+			<thead>
+				<tr>
+					<th>name</th>
+					<th>Grade</th>
+				</tr>
+				
+				<tr>
+					{%for x in res%}
+					<td>{{x.name}}</td>
+					<td>{{x.grade}}</td>
+					{%endfor%}
+				</tr>
+			
+			</table>
+        
+		</form>
+    </div>
 </body>
 </html>
+

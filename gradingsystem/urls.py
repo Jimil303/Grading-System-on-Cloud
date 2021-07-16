@@ -60,5 +60,6 @@ urlpatterns = [
     url('updateprofilefaculty',views.updateprofilefaculty,name = 'updateprofilefaculty'),
     url('getstudentlist.html',views.getstudentlist,name = 'getstudentlist'),
     url('approve',views.approve_status,name = 'approve'),
+    url('decline',views.decline_status,name = 'decline'),
     
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

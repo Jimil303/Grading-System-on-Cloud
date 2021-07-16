@@ -427,7 +427,9 @@ input[id=id_kind], select {
 }
 
 .search-table{
+	width: 90%;
 	margin: auto;
+	text-align: center;
 }
 
 input[id=Search], select {
