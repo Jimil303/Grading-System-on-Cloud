@@ -51,13 +51,13 @@
 	<div class="notification-body">	
 		
 		<div class="small-div">
-			<span class="text"><a class="text-text" href="notifications-recieved.html">Recieved</a></span>
+			<span class="text"><a class="text-text" id="recieved"  href="notifications-recieved.html">Recieved</a></span>
 	</div>
 		<div class="small-div">
-			<span class="text"><a class="text-text" href="notifications-pending.html">Pending</a></span>
+			<span class="text"><a class="text-text"  href="notifications-pending.html">Pending</a></span>
 	</div>
 		<div class="small-div">
-			<span class="text"><a class="text-text" href="notifications-sent.html">Sent</a></span>
+			<span class="text"><a class="text-text"  href="notifications-sent.html">Sent</a></span>
 		</div>
 
 	</div>
@@ -78,8 +78,8 @@
 				<th>File Link</th>
 				<th>Remark</th>
 				</tr>
-				<tr>
 				{% for x in det%}
+				<tr>
 				<td>{{x.sender}}</td>
 				<td>{{x.nameStudent}}</td>
 				<td>{{x.dated}}</td>
@@ -98,8 +98,8 @@
 				{%elif x.status == 2%}
 				<td>Declined</td>
 				{%endif%}
-				{%endfor%}
 			</tr>
+			{%endfor%}
 		</table>
 
 	</div>

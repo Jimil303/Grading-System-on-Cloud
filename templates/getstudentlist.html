@@ -1,13 +1,61 @@
 {% load static %}
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/result.css' %">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+</head>
 <body>
-    <form action = "getstudentlist" target = "_blank">
-        {%for x in res%}
-        {{x.ID}} -- {{x.name}} -- {{x.grade}}<br>
-        {%endfor%}
-    </form>
-    
+    <div id="header">
+		
+		<ul id="navigation">
+			<li>
+				<a href="studenthomepage.html">Home</a>
+			</li>
+			<li class="selected">
+				<a href="result.html">Result</a>
+			</li>
+			<li>
+				<a href="selectsemester.html">Course Registration</a>
+			</li>
+			<li>
+
+				<a href="Notification.html">notifications</a>
+			</li>
+			<li>
+				<a href="updateprofilestudent.html">Update Profile</a>
+			</li>
+		</ul>
+		<hr size="1" width="100%" color="grey">   
+	</div>
+
+    <div class="transcript">
+        <form action = "getstudentlist" class="transcript-table" target="_blank">
+            <p class="p1">Student List</p>
+			<table style="width:100%" border="1">
+				<col style="width:20%">
+                <col style="width:40%">
+				<col style="width:40">
+			<thead>
+				<tr>
+                    <th>Student ID</th>
+					<th>name</th>
+					<th>Grade</th>
+				</tr>
+				
+				{%for x in res%}
+				<tr>
+                    <td>{{x.ID}}</td>
+					<td>{{x.name}}</td>
+					<td>{{x.grade}}</td>
+				</tr>
+				{%endfor%}
+			</table>
+        
+		</form>
+    </div>
 </body>
 </html>

@@ -201,7 +201,7 @@ border-bottom: 2px solid black;
 
 .text-text{
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .notification-mail{
@@ -212,4 +212,16 @@ border-bottom: 2px solid black;
     background-color: rgb(255, 255, 255);
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	font-size: 2em;
+}
+
+#recieved{
+	color: black;
+}
+
+#pending{
+	color: black;
+}
+
+#sent{
+	color:black;
 }
