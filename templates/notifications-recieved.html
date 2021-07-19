@@ -51,7 +51,11 @@
 	<div class="notification-body">	
 		
 		<div class="small-div">
+<<<<<<< Updated upstream
 			<span class="text"><a class="text-text" id="recieved"  href="notifications-recieved.html">Recieved</a></span>
+=======
+			<span class="text"><a class="text-text" id = "recieved" href="notifications-recieved.html">Recieved</a></span>
+>>>>>>> Stashed changes
 	</div>
 		<div class="small-div">
 			<span class="text"><a class="text-text"  href="notifications-pending.html">Pending</a></span>
@@ -69,6 +73,7 @@
 			<col style="width:10%">
 			<col style="width:19.16%">
 			<col style="width:20.86%">
+			All Recieved Requests
 	<thead>
 			<tr>
 				<th>Sender</th>
@@ -80,6 +85,10 @@
 				</tr>
 				{% for x in det%}
 				<tr>
+<<<<<<< Updated upstream
+=======
+				
+>>>>>>> Stashed changes
 				<td>{{x.sender}}</td>
 				<td>{{x.nameStudent}}</td>
 				<td>{{x.dated}}</td>
@@ -98,6 +107,10 @@
 				{%elif x.status == 2%}
 				<td>Declined</td>
 				{%endif%}
+<<<<<<< Updated upstream
+=======
+				
+>>>>>>> Stashed changes
 			</tr>
 			{%endfor%}
 		</table>

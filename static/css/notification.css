@@ -201,7 +201,11 @@ border-bottom: 2px solid black;
 
 .text-text{
     text-decoration: none;
+<<<<<<< Updated upstream
     color: rgb(255, 255, 255);
+=======
+    color: rgb(136, 13, 13);
+>>>>>>> Stashed changes
 }
 
 .notification-mail{
@@ -213,7 +217,10 @@ border-bottom: 2px solid black;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	font-size: 2em;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 #recieved{
 	color: black;
 }

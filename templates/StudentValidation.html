@@ -54,7 +54,12 @@
 		{%csrf_token%}
 		{{ form }}
 		<input id="name" type="text" name="name" placeholder="Student Name" required="required"/><br>
-		<input id="college" autofocus type="search" placeholder="Send to" name="search" required = "required" />
+		<select id = "college1" name = "college1">
+			<option disabled selected> College </option>
+			{% for results in colleges %}
+			<option value = {{results.name}}>{{results.name}}</option>
+			{% endfor %}
+		</select>
 		<br>
 		<span class="text">upload file : </span>
 		<input id="stu-val-browse"  name = "pdffile" type = "file">

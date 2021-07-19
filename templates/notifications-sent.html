@@ -57,7 +57,11 @@
 			<span class="text"><a class="text-text" href="notifications-pending.html">Pending</a></span>
 	</div>
 		<div class="small-div">
+<<<<<<< Updated upstream
 			<span class="text"><a class="text-text" id="sent" href="notifications-sent.html">Sent</a></span>
+=======
+			<span class="text"><a class="text-text" id = "sent" href="notifications-sent.html">Sent</a></span>
+>>>>>>> Stashed changes
 		</div>
 
 	</div>
@@ -69,6 +73,7 @@
 			<col style="width:10%">
 			<col style="width:19.16%">
 			<col style="width:20.86%">
+			Sent Requests
 	<thead>
 			<tr>
 				<th>Sent To</th>
@@ -80,12 +85,20 @@
 				</tr>
 				{% for x in det%}
 				<tr>
+<<<<<<< Updated upstream
+=======
+				
+>>>>>>> Stashed changes
 				<td>{{x.reciever}}</td>
 				<td>{{x.nameStudent}}</td>
 				<td>{{x.dated}}</td>
 				<td>{{x.time}}</td>
                 <td>{{x.remarks}}</td>
 				<td><a href="{{x.fileurl}}" target="_blank"> Document </a></td>
+<<<<<<< Updated upstream
+=======
+				
+>>>>>>> Stashed changes
 			</tr>
 			{%endfor%}
 		</table>

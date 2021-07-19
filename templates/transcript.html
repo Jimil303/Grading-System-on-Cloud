@@ -3,10 +3,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<<<<<<< Updated upstream
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/result.css' %">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student transcript</title>
+=======
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/notification.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css' %}" media="screen and (max-width : 568px)">
+	<script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
+    <title>GradeCard</title>
+>>>>>>> Stashed changes
 </head>
 <body>
 
@@ -35,15 +43,23 @@
 
     <div class="transcript">
         <form action = "result" class="transcript-table">
+<<<<<<< Updated upstream
             <p class="p1">{{semester}}</p>
 			<table style="width:100%" border="1">
 				<col style="width:20%">
 				<col style="width:5%">
+=======
+            <th>{{semester}}</th>
+			<table style="width:100%" border="1">
+				<col style="width:40%">
+				<col style="width:20%">
+>>>>>>> Stashed changes
 			<thead>
 				<tr>
-					<th>name</th>
+					<th>Course Name</th>
 					<th>Grade</th>
 				</tr>
+<<<<<<< Updated upstream
 				
 				{%for x in res%}
 				<tr>
@@ -51,6 +67,17 @@
 					<td>{{x.grade}}</td>
 				</tr>
 				{%endfor%}
+=======
+				{%for x in res%}
+				<tr>
+					
+					<td>{{x.name}} - {{x.code}} - {{x.credits}}</td>
+					<td>{{x.grade}}</td>
+					<br>
+				</tr>
+				{%endfor%}
+			</thead>
+>>>>>>> Stashed changes
 			</table>
         
 		</form>

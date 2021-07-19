@@ -4,11 +4,12 @@ from django.core.exceptions import RequestAborted
 from django.core.files.base import File
 from django.db import reset_queries
 from django.db.models.fields import NullBooleanField
+from django.http import request
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.core.files.storage import FileSystemStorage
 from django.utils.functional import empty
-from grading.models import FacultyCredentials, admin, course, faculty_course_mapping ,messenger, StudentCredentials,semester, semester_course_mapping, student_course_mapping
+from grading.models import FacultyCredentials, Universities, admin, course, faculty_course_mapping ,messenger, StudentCredentials,semester, semester_course_mapping, student_course_mapping
 from .forms import Myform , Myform2, Myform3, Myform4
 from datetime import datetime
 import csv
@@ -24,6 +25,7 @@ def login(request):
 def loginstudent(request):
     if request.method == 'POST':
         m = StudentCredentials.objects.get(username = request.POST['username'])
+        print(m.name)
         if m.password == request.POST['password']:
             request.session['student_id'] = m.stu_id
             return render(request, 'studenthomepage.html')
@@ -69,6 +71,7 @@ def reguser1(request):
 
 def reguser2(request):
     if request.method == 'POST':
+        form = Myform()
         fileobj = request.FILES['csvfile']
         fs = FileSystemStorage()
         filePathName = fs.save(fileobj.name, fileobj)
@@ -91,12 +94,11 @@ def reguser2(request):
                 except:
                     continue
         context = {'filePathName': filePathName,}
-    return render(request, 'RegisterUsersfaculty.html', context)
+    return render(request, 'RegisterUsersfaculty.html', {'form' :form})
     
 def reguser3(request):
     if request.method == 'POST':
         form = Myform2(request.POST)
-        form_class = Myform2
         if form.is_valid():
             form.save()
     else:
@@ -105,6 +107,7 @@ def reguser3(request):
 
 def reguser4(request):
     if request.method == 'POST':
+        form = Myform2()
         fileobj = request.FILES['csvfile']
         fs = FileSystemStorage()
         filePathName = fs.save(fileobj.name, fileobj)
@@ -126,8 +129,7 @@ def reguser4(request):
                     created.save()
                 except:
                     continue
-        context = {'filePathName': filePathName,}
-    return render(request, 'RegisterUsersstudent.html', context)
+    return render(request, 'RegisterUsersstudent.html', {'form':form})
     
 def search(request):
     return render(request,'Search.html')
@@ -169,8 +171,13 @@ def notification_sent(request):
     details = messenger.objects.filter(sender = user).order_by('dated').all()
     print(details)
     return render(request,'notifications-sent.html',{'det' : details})
-
+def showunis(request):
+    x = Universities.objects.filter().all()
+    x = x.exclude(name = request.session['college'])
+    return x
 def StudentValidation(request):
+    unis = Universities.objects.filter().all()
+    unis = unis.exclude(name = request.session['college'])
     if request.method == 'POST':
         form_class = Myform
         fileobj = request.FILES['pdffile']
@@ -179,7 +186,7 @@ def StudentValidation(request):
         #uploaded_to = fs.path(filepathname)
         upload_data = cloudinary.uploader.upload(filepathname).get('secure_url')
         name = request.POST['name']
-        send_to = request.POST['search']
+        send_to = request.POST['college1']
         now = datetime.now()
         datee = now.strftime("%Y-%m-%d")
         timee = now.strftime("%H:%M:%S")
@@ -196,22 +203,22 @@ def StudentValidation(request):
             remarks = "",
             nameStudent = name,
             sender = request.session['college'],
-            
         )
         try:
             created.save()
         except:
-            return render (request,'StudentValidation.html', )
-    return render(request,'StudentValidation.html',)
+            return render (request,'StudentValidation.html', {'colleges':unis})
+    return render(request,'StudentValidation.html',{'colleges':unis})
 
 def studenthomepage(request):
-
-    return render(request,'studenthomepage.html')
-
+    user_name = request.session['student_id']
+    name = StudentCredentials.objects.get(stu_id = user_name)
+    return render(request,'studenthomepage.html',{'name': name})
 
 def coursereg(request):
     if request.method == 'POST':
         stu_id = request.session['student_id']
+        print(stu_id)
         print(request.session['sem'])
         print(stu_id)
         #print(request.session['year'])
@@ -312,30 +319,9 @@ def updateprofilestudent(request):
     return render(request,'updateprofilestudent.html')
 
 
-
-
 def addmanycourses(request):
     if request.method == 'POST':
-        fileobj = request.FILES['csvfile']
-        fs = FileSystemStorage()
-        filePathName = fs.save(fileobj.name, fileobj)
-        uploaded_to = fs.path(filePathName)
-        print(uploaded_to)
-        with open(uploaded_to) as f:
-            reader = csv.reader(f)
-            for row in reader:
-                created = course.objects.get_or_create(
-                    name = row[0],
-                    code = row[1],
-                )
-                try:
-                    created.save()
-                except:
-                    continue
-    return render(request,'addcourses.html')
-
-def addmanycourses(request):
-    if request.method == 'POST':
+        form = Myform3()
         fileobj = request.FILES['csvfile']
         fs = FileSystemStorage()
         filePathName = fs.save(fileobj.name, fileobj)
@@ -354,7 +340,7 @@ def addmanycourses(request):
                     created.save()
                 except:
                     continue
-    return render(request,'addcourses.html')
+    return render(request,'addcourses.html',{'form':form})
 
 def addonecourse(request):
     if request.method == 'POST':
@@ -439,7 +425,7 @@ def facultyhomepage(request):
 def displaycourse(sem, yr):
     x = semester.objects.get(year = yr, number = sem)
     y = semester_course_mapping.objects.filter(semester_id = x.id).all()
-    print(y[0].id)
+    
     list =[]
     for i in y:
         list.append(course.objects.get(id = i.course_id))
@@ -531,7 +517,7 @@ def get_courses(request):
 def selectcourse(request):
     x = get_courses(request)
     if request.method == 'POST':
-        x = course.objects.get( code= request.POST['course1'])
+        x = course.objects.get(code= request.POST['course1'])
         request.session['course_select'] = x.id
         if request.POST['sem'] == "Semester I":
             no = 1
@@ -613,10 +599,11 @@ def uploadallgrades(request):
 
 def result(request):
     class obj:
-        def __init__(self,name, grade):
+        def __init__(self,name, grade,code,credits):
             self.name = name
             self.grade = grade
-
+            self.code = code
+            self.credits = credits
     if request.method == 'POST':
         if request.POST['sem'] == "Semester I":
             no = 1
@@ -643,7 +630,7 @@ def result(request):
         for i in p:
             o = student_course_mapping.objects.get(student_id = request.session['student_id'], semester_course_mapping_id = i.id)
             r = course.objects.get(id = i.course_id)
-            q = obj(r.name, o.grade)
+            q = obj(r.name, o.grade, r.code, r.credits)
             lis.append(q)
         return render(request,'transcript.html',{'res':lis, 'semester':request.POST['sem']})
     return render(request,'result.html')
